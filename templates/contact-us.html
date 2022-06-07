@@ -1,0 +1,114 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Inner Page Main Banner __________________ -->
+<div class="inner-page-banner">
+	<div class="opacity">
+		<div class="container">
+			<h2>Biz bilan bog'lanish</h2>
+		</div> <!-- /.container -->
+	</div> <!-- /.opacity -->
+</div> <!-- /.inner-page-banner -->
+
+
+<!-- Page Breadcrum __________________________ -->
+<div class="page-breadcrum">
+	<div class="container">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li>-</li>
+			<li>Contact us</li>
+		</ul>
+	</div> <!-- /.container -->
+</div> <!-- /.page-breadcrum -->
+
+
+<!-- Contact Us Form _____________________ -->
+<div class="contact-us-page">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 wow fadeInLeft">
+				<div class="contact-us-form">
+					<h3>Habar yuborish</h3>
+					<p>Sizni email manzilingiz namoish etilmaydi.</p>
+					<form action="inc/sendemail.php" class="form-validation" autocomplete="off">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<input name="name" type="text" placeholder="FISH">
+							</div>
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<input name="email" type="email" placeholder="email">
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<input name="sub" type="text" placeholder="Mavzu">
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<textarea name="message" placeholder="Habar ..."></textarea>
+								<button class="tran3s p-color-bg themehover" title="Send">yuborish</button>
+							</div>
+						</div>
+					</form>
+
+					<!-- Contact alert -->
+					<div class="alert_wrapper" id="alert_success">
+						<div id="success">
+							<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+							<div class="wrapper">
+								<p>Habaringiz muvoffaqiyatli jo'natildi.</p>
+							</div>
+						</div>
+					</div> <!-- End of .alert_wrapper -->
+					<div class="alert_wrapper" id="alert_error">
+						<div id="error">
+							<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
+							<div class="wrapper">
+								<p>Kechirasiz! Xatolik yuz berdi.</p>
+							</div>
+						</div>
+					</div> <!-- End of .alert_wrapper -->
+				</div> <!-- /.contact-us-form -->
+			</div> <!-- /.col- -->
+
+			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 wow fadeInRight">
+				<div class="contactUs-address">
+					<h3>Biz bilan bog'lanish</h3>
+					<p>Veb sahifamizga hush kelibsiz, Biz bilan bemalol aloqaga chiqishingiz mumkun</p>
+
+					<ul>
+						<li>
+							<i class="fa fa-envelope-o" aria-hidden="true"></i>
+							<a href="#" class="tran3s">206Maktab@gmail.com</a>
+						</li>
+						<li>
+							<i class="fa fa-phone" aria-hidden="true"></i>
+							<a href="#" class="tran3s">+998931234567</a>
+						</li>
+						<li><i class="fa fa-map-marker" aria-hidden="true"></i>Toshkent viloyati, Uchtepa tumani
+					</ul>
+
+				</div> <!-- /.our-address -->
+			</div>
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</div> <!-- /.contact-us-page -->
+
+
+<!-- Google Map -->
+<div id="google-map" style="height:460px; width:100%; margin-top:100px;"></div>
+
+
+
+
+<!-- SubsCribe Banner ___________________ -->
+<div class="subscribe-banner p-color-bg wow fadeInUp">
+	<div class="container">
+		<h3>Obuna bo'ling</h3>
+		<p>Biz haqimizda yangiliklar, yangi kurslar, olimpiadalar haqida ma'lumotlarni kuzatib borish uchun
+			obuna bo'ling</p>
+		<form action="#" class="clear-fix">
+			<input type="email" class="float-left wow fadeInLeft" placeholder="Email address">
+			<button class="float-left tran3s wow fadeInRight">Obuna bo'lish</button>
+		</form>
+	</div>
+</div>
+{% endblock %}

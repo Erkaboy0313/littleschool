@@ -1,0 +1,401 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Inner Page Main Banner __________________ -->
+<div class="inner-page-banner">
+	<div class="opacity">
+		<div class="container">
+			<h2>Biz haqimizda</h2>
+		</div> <!-- /.container -->
+	</div> <!-- /.opacity -->
+</div> <!-- /.inner-page-banner -->
+
+
+<!-- Page Breadcrum __________________________ -->
+<div class="page-breadcrum">
+	<div class="container">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li>-</li>
+			<li>About</li>
+		</ul>
+	</div> <!-- /.container -->
+</div> <!-- /.page-breadcrum -->
+
+
+
+<!-- Welcome Section ___________________________ -->
+<div class="welcome-section" style="margin-top: 0 !important;">
+	<div class="container">
+		<div class="section-title wow fadeInUp">
+			<h2 class="p-color"> xush kelibsiz</h2>
+			<h5>Muvaffaqayatli o'quvchilarimiz safiga qo'shiling</h5>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis cum quasi sequi facilis
+				facere quod ipsam deleniti vero ab. Doloribus atque molestiae dolorum illo sunt, cumque maiores
+				magnam iusto reiciendis!</p>
+		</div> <!-- /.section-title -->
+
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
+				<h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> LEARN COUSES first</h3>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
+					voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi perferendis
+					voluptas? Quia repellendus excepturi sint aperiam vero! </p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
+				<h3><i class="fa fa-tags" aria-hidden="true"></i> 440 Courses available</h3>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
+					voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi perferendis
+					voluptas? Quia repellendus excepturi sint aperiam vero! </p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
+				<h3><i class="fa fa-diamond" aria-hidden="true"></i> Everything you need</h3>
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
+					voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi perferendis
+					voluptas? Quia repellendus excepturi sint aperiam vero! </p>
+			</div>
+		</div>
+	</div> <!-- /.container -->
+</div> <!-- /.welcome-section -->
+
+
+<!-- course Progress  __________________________ -->
+<div class="course-progress">
+    <div class="opacity">
+        <div class="container">
+            <h2>Ko'plab bilimlarni <span class="p-color">Biz bilan</span> o'rganing</h2>
+            <p>Farzangingizni sifatli ta'lim olishi uchun qulay sharoitlar yaratilgan.</p>
+            <h6>Bizning Natijalarimiz</h6>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="icon"> <i class="ficon flaticon-crowdfunding"></i> </div>
+                    <p>Tajribali ustozlar</p>
+                    <div class="number"><span class="timer" data-from="0" data-to="{{ statistics.teachers }}" data-speed="1500"
+                            data-refresh-interval="5">0</span></div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="icon"><i class="ficon flaticon-teamwork"></i></div>
+                    <p>Bitiruvchi o'quvchilar</p>
+                    <div class="number"><span class="timer" data-from="0" data-to="{{ statistics.finishers }}" data-speed="1500"
+                            data-refresh-interval="5">0</span></div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="icon"><i class="ficon flaticon-medical"></i></div>
+                    <p>Barcha o'quvchilar</p>
+                    <div class="number"><span class="timer" data-from="0" data-to="{{ statistics.pupils }}" data-speed="1500"
+                            data-refresh-interval="5">0</span></div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                    <div class="icon"><i class="ficon flaticon-book"></i></div>
+                    <p>Maxsus Kurslar</p>
+                    <div class="number"><span class="timer" data-from="0" data-to="{{ statistics.special_courses }}" data-speed="1500"
+                            data-refresh-interval="5">0</span></div>
+                </div>
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </div> <!-- /.opacity -->
+</div> <!-- /.course-progress -->
+
+<!-- Our Teacher ________________________ -->
+<div class="our-teacher wow fadeInUp">
+	<div class="container">
+		<div class="theme-title">
+			<h2>Bizning o'qituvchilarimiz</h2>
+			<p>10 yildan ortiq tajribaga ega bo'lga o'qituvchilarimiz</p>
+		</div>
+
+		<div class="row">
+			<div class="theme-slider">
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/2.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Jaflika tesla</h6>
+						</a>
+						<p>Creative Director</p>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/3.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Mahfuz Riad</h6>
+						</a>
+						<p>Science Professor</p>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/4.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Rashed jannat</h6>
+						</a>
+						<p>lecturer</p>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/2.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Jaflika tesla</h6>
+						</a>
+						<p>Creative Director</p>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/3.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Mahfuz Riad</h6>
+						</a>
+						<p>Science Professor</p>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/4.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Rashed jannat</h6>
+						</a>
+						<p>lecturer</p>
+					</div>
+				</div> <!-- /.item -->
+
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="images/inner-page/2.jpg" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="teacher-profile.html">
+							<h6>Jaflika tesla</h6>
+						</a>
+						<p>Creative Director</p>
+					</div>
+				</div> <!-- /.item -->
+
+			</div>
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</div> <!-- /.our-teacher -->
+
+
+<!-- Latest Event Slider Section _______ -->
+<div class="latest-event-slider event-section wow fadeInUp">
+	<div class="container">
+		<h3>So'ngi tadbirlar</h3>
+
+		<div class="row">
+			<div class="theme-slider">
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">25 <span>June</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">30 <span>Dec</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">15 <span>June</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">05 <span>Sep</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">11 <span>June</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">20 <span>Nov</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">10 <span>May</span></div>
+						<a href="event-details.html">
+							<h6>Build Education STRATEGY</h6>
+						</a>
+						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
+							your need no matter</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+			</div> <!-- /.theme-slider -->
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</div> <!-- /.latest-event-slider -->
+
+
+
+
+<!-- SubsCribe Banner ___________________ -->
+<div class="subscribe-banner p-color-bg wow fadeInUp">
+	<div class="container">
+		<h3>Obuna bo'ling</h3>
+		<p>Biz haqimizda yangiliklar, yangi kurslar, olimpiadalar haqida ma'lumotlarni kuzatib borish uchun
+			obuna bo'ling</p>
+		<form action="#" class="clear-fix">
+			<input type="email" class="float-left wow fadeInLeft" placeholder="Email address">
+			<button class="float-left tran3s wow fadeInRight">Obuna bo'lish</button>
+		</form>
+	</div>
+</div>
+{% endblock %}
