@@ -38,6 +38,7 @@ class Course(models.Model):
     help = models.TextField()
     cost = models.IntegerField(default=0)
     time = models.DateTimeField(auto_now_add=True)
+    duration = models.CharField(max_length=100)
     def __str__(self):
         return self.title
 

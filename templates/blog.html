@@ -46,6 +46,48 @@
 						</div> <!-- /.text-wrapper -->
 					</div> <!-- /.single-post -->
                     {% endfor %}
+					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<div class="img-holder">
+							<div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
+							<img src="{% static 'images/blog/2.jpg' %}" alt="Image">
+							<a href="blog-details.html" class="tran4s"></a>
+						</div>
+						<div class="text-wrapper">
+							<div class="text tran4s">
+								<a href="blog-details.html">New school budget </a>
+								<p>Education is the process of facilitating learning. Knowledge kills, values, beliefs, and habits of a group of people are transferred </p>
+							</div> <!-- /.text -->
+						</div> <!-- /.text-wrapper -->
+					</div> <!-- /.single-post -->
+
+					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<div class="img-holder">
+							<div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
+							<img src="{% static 'images/blog/5.jpg' %}" alt="Image">
+							<a href="blog-details.html" class="tran4s"></a>
+						</div>
+						<div class="text-wrapper">
+							<div class="text tran4s">
+								<a href="blog-details.html">New school budget </a>
+								<p>Education is the process of facilitating learning. Knowledge kills, values, beliefs, and habits of a group of people are transferred </p>
+							</div> <!-- /.text -->
+						</div> <!-- /.text-wrapper -->
+					</div> <!-- /.single-post -->
+
+					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
+						<div class="img-holder">
+							<div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
+							<img src="{% static 'images/blog/6.jpg' %}" alt="Image">
+							<a href="blog-details.html" class="tran4s"></a>
+						</div>
+						<div class="text-wrapper">
+							<div class="text tran4s">
+								<a href="blog-details.html">New school budget </a>
+								<p>Education is the process of facilitating learning. Knowledge kills, values, beliefs, and habits of a group of people are transferred </p>
+							</div> <!-- /.text -->
+						</div> <!-- /.text-wrapper -->
+					</div> <!-- /.single-post -->
+
 				</div>
 			</div>
 			<!-- _______________ SideBar ___________________ -->
@@ -59,18 +101,6 @@
 							</form>
 						</div> <!-- /.box-wrapper -->
 					</div> <!-- /.sidebar-box.sidebar-search -->
-					<div class="sidebar-box quick-event-list">
-						<div class="box-wrapper">
-							<h4>QUICK event List</h4>
-							<ul>
-                                {% for i in news %}
-								<li><a href="{% url 'news' %}" class="tran3s"><i class="fa fa-angle-double-right"
-											aria-hidden="true"></i>{{ i.title }}</a></li>
-                                {% endfor %}
-                            </ul>
-						</div> <!-- /.box-wrapper -->
-					</div> <!-- /.sidebar-box.quick-event-list -->
-
 					<div class="sidebar-box talent-teacher">
 						<div class="box-wrapper">
 							<h4>Talent teacher</h4>
@@ -111,51 +141,97 @@
 											Profile</a>
 									</div>
                                     {% endfor %}
+									<div class="item active">
+										<img src="{% static 'images/inner-page/16.jpg' %}" alt="Teacher">
+										<h6>Mahfuz Riad</h6>
+
+										<ul class="organize-list">
+											  <li><i class="fa fa-envelope-o" aria-hidden="true"></i> backpiper.info@gmail.com</li>
+											  <li><i class="fa fa-phone" aria-hidden="true"></i> +8801682648101</li>
+											  <li><i class="fa fa-calendar" aria-hidden="true"></i> Economic Analysis</li>
+											  <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Professional MCC (UK)</li>
+										  </ul>
+
+										  <ul class="share-icon">
+											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+										  </ul>
+
+										  <a href="teacher-profile.html" class="theme-bg-color view-profile tran3s">View Profile</a>
+									  </div> <!-- /.item -->
+									  <div class="item">
+										<img src="{% static 'images/inner-page/16.jpg' %}" alt="Teacher">
+										<h6>Mahfuz Riad</h6>
+
+										<ul class="organize-list">
+											  <li><i class="fa fa-envelope-o" aria-hidden="true"></i> backpiper.info@gmail.com</li>
+											  <li><i class="fa fa-phone" aria-hidden="true"></i> +8801682648101</li>
+											  <li><i class="fa fa-calendar" aria-hidden="true"></i> Economic Analysis</li>
+											  <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Professional MCC (UK)</li>
+										  </ul>
+
+										  <ul class="share-icon">
+											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+										  </ul>
+
+										  <a href="teacher-profile.html" class="theme-bg-color view-profile tran3s">View Profile</a>
+									  </div> <!-- /.item -->
 								</div>
 							</div> <!-- /#talent-teacher-carousel -->
 						</div> <!-- /.box-wrapper -->
 					</div> <!-- /.sidebar-box.talent-teacher -->
-
+					
 					<div class="sidebar-box feature-event feature-course-sidebar">
 						<div class="box-wrapper">
 							<h4>Featured courses</h4>
-                            {% for i in course %}
+							{% for course in courses %}
+								<div class="single-event clear-fix">
+									<div class="date float-left p-color-bg">
+										{{ course.time.day }} <span>{{ course.time.month }}</span>
+									</div> <!-- /.date -->
+									<div class="post float-left">
+										<a href="course-details.html" class="tran3s">{{ course.title }}</a>
+										<ul>
+											<li><i class="fa fa-calendar" aria-hidden="true"></i> {{ course.duration }}</li>
+											<li><i class="fa fa-user" aria-hidden="true"></i>{{ course.teacher.first_name }}</li>
+											<li><a href="#">{{ course.cost }}</a></li>
+										</ul>
+									</div> <!-- /.post -->
+								</div> <!-- /.single-event -->
+							{% endfor %}
 							<div class="single-event clear-fix">
 								<div class="date float-left p-color-bg">
-									25 <span>Feb</span>
+									11 <span>Feb</span>
 								</div> <!-- /.date -->
 								<div class="post float-left">
-									<a href="course-details.html" class="tran3s">{{ i.title }}</a>
+									<a href="course-details.html" class="tran3s">Overviewing the leading contemporary conceptions</a>
 									<ul>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i> 15 days</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i>{{ i.teacher.first_name }}</li>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i> 10 days</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i>Riad</li>
+										<li><a href="#">Free</a></li>
+									</ul>
+								</div> <!-- /.post -->
+							</div> <!-- /.single-event -->
+
+							<div class="single-event clear-fix">
+								<div class="date float-left p-color-bg">
+									09 <span>Feb</span>
+								</div> <!-- /.date -->
+								<div class="post float-left">
+									<a href="course-details.html" class="tran3s">Overviewing the leading contemporary conceptions</a>
+									<ul>
+										<li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Month</li>
+										<li><i class="fa fa-user" aria-hidden="true"></i>Asfia</li>
 										<li><a href="#">$124</a></li>
 									</ul>
 								</div> <!-- /.post -->
-							</div>
-                            {% endfor %}
+							</div> <!-- /.single-event -->
 						</div> <!-- /.box-wrapper -->
 					</div> <!-- /.sidebar-box.feature-event.feature-course-sidebar -->
 
-					<div class="sidebar-box feature-event">
-						<div class="box-wrapper">
-							<h4>Featured events</h4>
-                            {% for i in events %}
-							<div class="single-event clear-fix">
-								<div class="date float-left p-color-bg">
-									{{ i.start_time.day }}<span>{{ i.start_time.month }}</span>
-								</div> <!-- /.date -->
-								<div class="post float-left">
-									<a href="event-details.html" class="tran3s">{{ i.topic }}</a>
-									<ul>
-										<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ i.start_time.time }} - {{ i.end_time.time }}</li>
-										<li><i class="fa fa-tag" aria-hidden="true"></i>{{ i.place }}</li>
-									</ul>
-								</div> <!-- /.post -->
-							</div>
-                            {% endfor %}
-						</div> <!-- /.box-wrapper -->
-					</div> <!-- /.sidebar-box.feature-event -->
 				</div> <!-- /.wrapper -->
 			</div> <!-- /.sidebarOne -->
 		</div>
