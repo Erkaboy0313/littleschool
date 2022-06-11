@@ -24,23 +24,30 @@ def index(request):
 
 def about_us(request):
     teachers = Staf.objects.filter(user_type = Staf.TEACHER)
-    events = Event.objects.all()[6]
+    events = Event.objects.all()
     return render(request,'about-us.html')
 
 def events(request):
-    return render(request,'event.html')
+    events = Event.objects.all()
+    return render(request,'event.html',{'events':events})
 
 def teachers(request):
-    return render(request,'our-teacher.html')
+    teachers = Staf.objects.filter(user_type=Staf.TEACHER)
+    return render(request,'our-teacher.html',{'teachers':teachers})
 
 def heads(request):
     return render(request,'heads.html')
 
 def faq(request):
-    return render(request,'faq.html')
+    faqs = Faq.objects.all()
+    return render(request,'faq.html',{'faqs':faqs})
 
 def news(request):
-    return render(request,'blog.html')
+    news = News.objects.all().order_by('-id')
+    course = Course.objects.all().order_by('-id')
+    teachers = Staf.objects.filter(user_type=Staf.TEACHER)
+    events = Event.objects.all().order_by('-id')
+    return render(request,'blog.html',{'news':news,'teachers':teachers,'course':course,'events':events})
 
 def contact(request):
     return render(request,'contact-us.html')

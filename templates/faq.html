@@ -32,89 +32,21 @@
 				<!-- ________________ Panel _______________ -->
 				<div class="faq_panel">
 					<div class="panel-group theme-accordion" id="accordion">
+                        {% for i in faqs %}
 						<div class="panel">
 							<div class="panel-heading active-panel">
 								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-										Smart Learning is an education platform partners</a>
+									<a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ i.id }}">
+										{{ i.question }}</a>
 								</h6>
 							</div>
-							<div id="collapse1" class="panel-collapse collapse in">
+							<div id="collapse{{ i.id }}" class="panel-collapse collapse in">
 								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempo- ra
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
+									<p>{{ i.answer }}</p>
 								</div>
 							</div>
-						</div> <!-- /panel 1 -->
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
-										Education of Tomorrow, Rooted in Tradition</a>
-								</h6>
-							</div>
-							<div id="collapse2" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 2 -->
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-										Lorem ipsum dolor sit amet, consectetur adipiscing</a>
-								</h6>
-							</div>
-							<div id="collapse3" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 3 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-										Build Education Website Using HTML</a>
-								</h6>
-							</div>
-							<div id="collapse4" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 4 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-										BEST INDUSTRY LEADERS for awesome courses</a>
-								</h6>
-							</div>
-							<div id="collapse5" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 5 -->
-
+						</div>
+                        {% endfor %}
 					</div> <!-- end #accordion -->
 				</div> <!-- End of .faq_panel -->
 			</div>
@@ -124,141 +56,22 @@
 				<!-- ________________ Panel _______________ -->
 				<div class="faq_panel">
 					<div class="panel-group theme-accordion" id="accordiontwo">
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse21">
-										Smart Learning is an education platform partners</a>
-								</h6>
-							</div>
-							<div id="collapse21" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempo- ra
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 1 -->
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse22">
-										Education of Tomorrow, Rooted in Tradition</a>
-								</h6>
-							</div>
-							<div id="collapse22" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 2 -->
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse23">
-										Lorem ipsum dolor sit amet, consectetur adipiscing</a>
-								</h6>
-							</div>
-							<div id="collapse23" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 3 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse24">
-										Build Education Website Using HTML</a>
-								</h6>
-							</div>
-							<div id="collapse24" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 4 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse25">
-										BEST INDUSTRY LEADERS for awesome courses</a>
-								</h6>
-							</div>
-							<div id="collapse25" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 5 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse26">
-										BEST INDUSTRY LEADERS for awesome courses</a>
-								</h6>
-							</div>
-							<div id="collapse26" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 6 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse27">
-										BEST INDUSTRY LEADERS for awesome courses</a>
-								</h6>
-							</div>
-							<div id="collapse27" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 7 -->
-
-						<div class="panel">
-							<div class="panel-heading">
-								<h6 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse28">
-										BEST INDUSTRY LEADERS for awesome courses</a>
-								</h6>
-							</div>
-							<div id="collapse28" class="panel-collapse collapse">
-								<div class="panel-body">
-									<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
-										consectetur, adipisci velit, sed quia non numquam eius modi tempora
-										incidunt ut labore et dolore magnam aliquam quaerat voluptatem Nemo enim
-										ipsam voluptatem</p>
-								</div>
-							</div>
-						</div> <!-- /panel 8 -->
-
-					</div> <!-- end #accordion -->
+                        {% for i in faqs %}
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h6 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#accordiontwo" href="#collapse{{ i.id }}">
+                                            {{ i.question }}</a>
+                                    </h6>
+                                </div>
+                                <div id="collapse{{ i.id }}" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <p>{{ i.answer }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+					</div>
 				</div> <!-- End of .faq_panel -->
 			</div>
 		</div> <!-- /.row -->
