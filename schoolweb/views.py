@@ -25,11 +25,18 @@ def index(request):
 def about_us(request):
     teachers = Staf.objects.filter(user_type = Staf.TEACHER)
     events = Event.objects.all()
-    return render(request,'about-us.html')
+    statistics = Statistics.objects.all()[0]
+    context = {
+        'teachers':teachers,
+        'events':events,
+        'statistics':statistics
+    }
+    return render(request,'about-us.html',context)
 
 def events(request):
     events = Event.objects.all()
-    return render(request,'event.html',{'events':events})
+    course = Course.objects.filter(cost = 0)
+    return render(request,'event.html',{'events':events,'courses':course})
 
 def teachers(request):
     teachers = Staf.objects.filter(user_type=Staf.TEACHER)

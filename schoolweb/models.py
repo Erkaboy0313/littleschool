@@ -25,6 +25,7 @@ class Staf(models.Model):
     email = models.EmailField(max_length=100,null=True)
     number = models.CharField(max_length=20,null=True)
     image = models.ImageField(upload_to = 'Staff')
+    position = models.CharField(max_length=100,null=True,blank=True)
 
     def __str__(self):
         return self.user.username
@@ -35,7 +36,8 @@ class Course(models.Model):
     teacher = models.ForeignKey(Staf,on_delete=models.SET_NULL,null=True)
     description = models.TextField()
     help = models.TextField()
-
+    cost = models.IntegerField(default=0)
+    time = models.DateTimeField(auto_now_add=True)
     def __str__(self):
         return self.title
 

@@ -60,7 +60,7 @@
 
 
 <!-- course Progress  __________________________ -->
-<div class="course-progress">
+<div class="course-progress" style="margin-top: 50px;">
     <div class="opacity">
         <div class="container">
             <h2>Ko'plab bilimlarni <span class="p-color">Biz bilan</span> o'rganing</h2>
@@ -107,98 +107,33 @@
 
 		<div class="row">
 			<div class="theme-slider">
+				{% for teacher in teachers %}
 				<div class="item">
 					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
 						<div class="img-holder round-border">
-							<img src="images/inner-page/2.jpg" alt="Teacher">
+							<img src="{{ teacher.image.url }}" alt="Teacher">
 							<div class="overlay round-border tran4s">
 								<ul>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+									<li><a class="tran3s round-border icon"><i class="fa fa-facebook"
 												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+									<li><a class="tran3s round-border icon"><i class="fa fa-twitter"
 												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+									<li><a class="tran3s round-border icon"><i class="fa fa-linkedin"
 												aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div> <!-- /.img-holder -->
 						<a href="teacher-profile.html">
-							<h6>Jaflika tesla</h6>
+							<h6>{{ teacher.first_name }} {{ teacher.lastname }}</h6>
 						</a>
-						<p>Creative Director</p>
+						<p>{{ teacher.position }}</p>
 					</div>
 				</div> <!-- /.item -->
-
+				{% endfor %}
 				<div class="item">
 					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
 						<div class="img-holder round-border">
-							<img src="images/inner-page/3.jpg" alt="Teacher">
-							<div class="overlay round-border tran4s">
-								<ul>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
-												aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div> <!-- /.img-holder -->
-						<a href="teacher-profile.html">
-							<h6>Mahfuz Riad</h6>
-						</a>
-						<p>Science Professor</p>
-					</div>
-				</div> <!-- /.item -->
-
-				<div class="item">
-					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
-						<div class="img-holder round-border">
-							<img src="images/inner-page/4.jpg" alt="Teacher">
-							<div class="overlay round-border tran4s">
-								<ul>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
-												aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div> <!-- /.img-holder -->
-						<a href="teacher-profile.html">
-							<h6>Rashed jannat</h6>
-						</a>
-						<p>lecturer</p>
-					</div>
-				</div> <!-- /.item -->
-
-				<div class="item">
-					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
-						<div class="img-holder round-border">
-							<img src="images/inner-page/2.jpg" alt="Teacher">
-							<div class="overlay round-border tran4s">
-								<ul>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
-												aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div> <!-- /.img-holder -->
-						<a href="teacher-profile.html">
-							<h6>Jaflika tesla</h6>
-						</a>
-						<p>Creative Director</p>
-					</div>
-				</div> <!-- /.item -->
-
-				<div class="item">
-					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
-						<div class="img-holder round-border">
-							<img src="images/inner-page/3.jpg" alt="Teacher">
+							<img src="{% static 'images/inner-page/3.jpg' %}" alt="Teacher">
 							<div class="overlay round-border tran4s">
 								<ul>
 									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
@@ -220,7 +155,7 @@
 				<div class="item">
 					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
 						<div class="img-holder round-border">
-							<img src="images/inner-page/4.jpg" alt="Teacher">
+							<img src="{% static 'images/inner-page/4.jpg' %}" alt="Teacher">
 							<div class="overlay round-border tran4s">
 								<ul>
 									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
@@ -238,29 +173,6 @@
 						<p>lecturer</p>
 					</div>
 				</div> <!-- /.item -->
-
-				<div class="item">
-					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
-						<div class="img-holder round-border">
-							<img src="images/inner-page/2.jpg" alt="Teacher">
-							<div class="overlay round-border tran4s">
-								<ul>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
-												aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div> <!-- /.img-holder -->
-						<a href="teacher-profile.html">
-							<h6>Jaflika tesla</h6>
-						</a>
-						<p>Creative Director</p>
-					</div>
-				</div> <!-- /.item -->
-
 			</div>
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
@@ -274,20 +186,21 @@
 
 		<div class="row">
 			<div class="theme-slider">
-				<div class="item wow fadeInUp hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">25 <span>June</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
+				{% for event in events %}
+					<div class="item wow fadeInUp hvr-float-shadow">
+						<div class="single-event theme-bg-color">
+							<div class="date p-color">{{ event.day }} <span>{{ event.month }}</span></div>
+							<a href="event-details.html">
+								<h6>{{ event.topic }}</h6>
+							</a>
+							<p>{{ event.description }}</p>
+							<ul>
+								<li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.place }}</li>
+								<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ event.time }}</li>
+							</ul>
+						</div> <!-- /.single-event -->
+					</div> <!-- /.item -->
+				{% endfor %}
 
 				<div class="item wow fadeInUp hvr-float-shadow">
 					<div class="single-event theme-bg-color">
@@ -303,52 +216,6 @@
 						</ul>
 					</div> <!-- /.single-event -->
 				</div> <!-- /.item -->
-
-				<div class="item wow fadeInUp hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">15 <span>June</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item wow fadeInUp hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">05 <span>Sep</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item wow fadeInUp hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">11 <span>June</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
 				<div class="item wow fadeInUp hvr-float-shadow">
 					<div class="single-event theme-bg-color">
 						<div class="date p-color">20 <span>Nov</span></div>
@@ -383,19 +250,4 @@
 	</div> <!-- /.container -->
 </div> <!-- /.latest-event-slider -->
 
-
-
-
-<!-- SubsCribe Banner ___________________ -->
-<div class="subscribe-banner p-color-bg wow fadeInUp">
-	<div class="container">
-		<h3>Obuna bo'ling</h3>
-		<p>Biz haqimizda yangiliklar, yangi kurslar, olimpiadalar haqida ma'lumotlarni kuzatib borish uchun
-			obuna bo'ling</p>
-		<form action="#" class="clear-fix">
-			<input type="email" class="float-left wow fadeInLeft" placeholder="Email address">
-			<button class="float-left tran3s wow fadeInRight">Obuna bo'lish</button>
-		</form>
-	</div>
-</div>
 {% endblock %}

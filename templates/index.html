@@ -201,13 +201,6 @@
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
                             voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
                             perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-                        <div class="clear-fix">
-                            <ul class="float-left">
-                                <li><i class="fa fa-users" aria-hidden="true"></i> 345</li>
-                                <li><i class="fa fa-comment" aria-hidden="true"></i> 5</li>
-                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Tea road,CA</li>
-                            </ul>
-                        </div>
                     </div> <!-- /.text -->
                 </div> <!-- /.item -->
 
@@ -220,13 +213,6 @@
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
                             voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
                             perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-                        <div class="clear-fix">
-                            <ul class="float-left">
-                                <li><i class="fa fa-users" aria-hidden="true"></i> 345</li>
-                                <li><i class="fa fa-comment" aria-hidden="true"></i> 5</li>
-                                <li><i class="fa fa-map-marker" aria-hidden="true"></i> Tea road,CA</li>
-                            </ul>
-                        </div>
                     </div> <!-- /.text -->
                 </div> <!-- /.item -->
 
@@ -417,7 +403,7 @@
             <div class="single-post wow fadeInUp col-lg-4 col-md-4 col-sm-6 col-xs-6">
                 <div class="img-holder">
                     <div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-                    <img src="images/blog/2.jpg" alt="Image">
+                    <img src="{% static 'images/blog/2.jpg' %}" alt="Image">
                     <a href="blog-details.html" class="tran4s"></a>
                 </div>
                 <div class="text-wrapper">
@@ -432,7 +418,7 @@
             <div class="single-post wow fadeInUp col-lg-4 col-md-4 col-sm-6 col-xs-6">
                 <div class="img-holder">
                     <div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-                    <img src="images/blog/3.jpg" alt="Image">
+                    <img src="{% static 'images/blog/3.jpg' %}" alt="Image">
                     <a href="blog-details.html" class="tran4s"></a>
                 </div>
                 <div class="text-wrapper">
@@ -468,7 +454,7 @@
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
                                 <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="images/home/2.png" alt="Image">
+                                    <div class="img round-border"><img src="{% static 'images/home/2.png' %}" alt="Image">
                                     </div>
                                     <h6>ghost riad <span>(Sir.Principal)</span></h6>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
@@ -478,7 +464,7 @@
                                 </div> <!-- /.single-box -->
 
                                 <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="images/home/3.png" alt="Image">
+                                    <div class="img round-border"><img src="{% static 'images/home/3.png' %}" alt="Image">
                                     </div>
                                     <h6>Masum nodi <span>(Sir.Principal Fohinni)</span></h6>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
@@ -490,7 +476,7 @@
 
                             <div class="item">
                                 <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="images/home/2.png" alt="Image">
+                                    <div class="img round-border"><img src="{% static 'images/home/2.png' %}" alt="Image">
                                     </div>
                                     <h6>ghost riad <span>(Sir.Principal)</span></h6>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
@@ -500,29 +486,7 @@
                                 </div> <!-- /.single-box -->
 
                                 <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="images/home/3.png" alt="Image">
-                                    </div>
-                                    <h6>Masum nodi <span>(Sir.Principal Fohinni)</span></h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                        consectetur sequi voluptates id libero placeat eaque, consequuntur ipsa
-                                        fuga sapiente at excepturi perferendis voluptas? Quia repellendus
-                                        excepturi sint aperiam vero!</p>
-                                </div> <!-- /.single-box -->
-                            </div>
-
-                            <div class="item">
-                                <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="images/home/2.png" alt="Image">
-                                    </div>
-                                    <h6>ghost riad <span>(Sir.Principal)</span></h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                        consectetur sequi voluptates id libero placeat eaque, consequuntur ipsa
-                                        fuga sapiente at excepturi perferendis voluptas? Quia repellendus
-                                        excepturi sint aperiam vero!</p>
-                                </div> <!-- /.single-box -->
-
-                                <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="images/home/3.png" alt="Image">
+                                    <div class="img round-border"><img src="{% static 'images/home/3.png' %}" alt="Image">
                                     </div>
                                     <h6>Masum nodi <span>(Sir.Principal Fohinni)</span></h6>
                                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
@@ -601,18 +565,4 @@
     </div> <!-- /.container -->
 </div> <!-- /.test-faq -->
 
-
-
-<!-- SubsCribe Banner ___________________ -->
-<div class="subscribe-banner p-color-bg wow fadeInUp">
-    <div class="container">
-        <h3>Obuna bo'ling</h3>
-        <p>Biz haqimizda yangiliklar, yangi kurslar, olimpiadalar haqida ma'lumotlarni kuzatib borish uchun
-            obuna bo'ling</p>
-        <form action="#" class="clear-fix">
-            <input type="email" class="float-left wow fadeInLeft" placeholder="Email address">
-            <button class="float-left tran3s wow fadeInRight">Obuna bo'lish</button>
-        </form>
-    </div>
-</div>
 {% endblock %}
