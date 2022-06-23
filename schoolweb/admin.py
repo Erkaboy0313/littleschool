@@ -1,4 +1,3 @@
-from ast import Mod
 from django.contrib import admin
 from .models import Staf,Course,Modul,Event,News,Comment,Faq,Opinion,Statistics
 # Register your models here.

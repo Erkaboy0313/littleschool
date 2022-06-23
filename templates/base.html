@@ -1,6 +1,6 @@
-﻿<!DOCTYPE html>
+﻿{% load static %}
+<!DOCTYPE html>
 <html lang="en">
-{% load static %}
 <head>
 	<meta charset="UTF-8">
 	<!-- For IE -->
@@ -9,9 +9,7 @@
 	<!-- For Resposive Device -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	{% block title %}
-		<title>203 - maktab</title>
-	{% endblock %}
+	<title>203 - maktab</title>
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="56x56" href="{% static 'images/fav-icon/icon.png' %}">
@@ -31,8 +29,6 @@
 
 		<!-- Header _________________________________ -->
 		<header class="main-header">
-
-
 			<div class="top-header">
 				<div class="container">
 					<div class="left-side float-left">
@@ -45,18 +41,6 @@
 									href="" class="tran3s">+998931234567</a></li>
 						</ul>
 					</div> <!-- /.left-side -->
-					<div class="right-side float-right">
-						<ul>
-							<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
-										aria-hidden="true"></i></a></li>
-							<li><a href="#" class="tran3s round-border icon"><i class="fa-brands fa-telegram" 
-										aria-hidden="true"></i></a></li>
-							<li><a href="#" class="tran3s round-border icon"><i class="fa fa-instagram"
-										aria-hidden="true"></i></a></li>
-							<li><a href="#" class="tran3s round-border icon"><i class="fa fa-youtube"
-										aria-hidden="true"></i></a></li>
-						</ul>
-					</div> <!-- /.right-side -->
 				</div>
 			</div> <!-- /.top-header -->
 
@@ -86,26 +70,23 @@
 								</button>
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
+							{% block nav %}
 							<div class="collapse navbar-collapse" id="navbar-collapse-1">
 								<ul class="nav navbar-nav">
-									<li class="dropdown-holder current-page-item"><a href="{% url 'index' %}">Home</a>
+									<li class="dropdown-holder current-page-item"><a href="{% url 'index' %}">Bosh sahifa</a>
 									</li>
 									<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
 									</li>
 									<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
 									</li>
-
-									<li class="dropdown-holder"><a href="#">Hodimlar</a>
-										<ul class="sub-menu">
-											<li><a href="{% url 'heads' %}" class="tran3s">Raxbariyat</a></li>
-											<li><a href="{% url 'teachers' %}" class="tran3s">Bizning o'qituvchilar</a></li>
-										</ul>
+									<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
 									</li>
 									<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
 									</li>
 									<li><a href="{% url 'contact' %}">Aloqa</a></li>
 								</ul>
 							</div><!-- /.navbar-collapse -->
+							{% endblock %}
 						</nav>
 					</div>
 				</div> <!-- /.main-menu-wrapper -->
@@ -116,7 +97,7 @@
 
 
 
-		{% endblock %}
+		{% endblock content %}
 
 		<!-- Footer ______________________________ -->
 		<footer>
@@ -125,202 +106,57 @@
 					<div class="row">
 						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 footer-about">
 							<h4>Biz haqimizda</h4>
-							<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-								voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
-								perferendis</p>
-							<a href="about-us.html" class="tran3s"><i class="fa fa-caret-right" aria-hidden="true"></i>
-								About us</a>
-							<a href="our-teacher.html" class="tran3s"><i class="fa fa-caret-right"
-									aria-hidden="true"></i> Team Member</a>
+							<p>Biz bilan ta'lim oling va ko'plab imkoniyatlarga ega bo'ling. Bizning tajribali 
+								o'qituvchilar va bizda yaratilgan sharoitlar sizni yoki farzandingizni sifatli
+								ta'lim olishini kafolatlaydi</p>
+							<a href="{% url 'about_us' %}" class="tran3s"><i class="fa fa-caret-right" aria-hidden="true"></i>
+								Biz haqimizda</a>
+							<a href="{% url 'teachers' %}" class="tran3s"><i class="fa fa-caret-right"
+									aria-hidden="true"></i>Hodimlar</a>
 							<ul>
-								<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+								<li><a href="https://t.me/Uchtepa_tumani_203_maktab_hayoti" class="tran3s round-border icon"><i class="fa fa-telegram"
 											aria-hidden="true"></i></a></li>
-								<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
-											aria-hidden="true"></i></a></li>
-								<li><a href="#" class="tran3s round-border icon"><i class="fa fa-google-plus"
-											aria-hidden="true"></i></a></li>
-								<li><a href="#" class="tran3s round-border icon"><i class="fa fa-pinterest"
+								<li><a href="#" class="tran3s round-border icon"><i class="fa fa-instagram"
 											aria-hidden="true"></i></a></li>
 							</ul>
 						</div> <!-- /.footer-about -->
 
-						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 footer-contact">
-							<h4>CONTACT US</h4>
+						<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 footer-contact" style="margin-left: 9%;">
+							<h4>Biz bilan bog'lanish</h4>
 
 
 							<ul>
 								<li>
 									<i class="fa fa-envelope-o" aria-hidden="true"></i>
-									<a href="mailto:helpneed@edutech.com" class="tran3s">203Maktab@gmail.com</a>
+									<a href="fayyozbekov@gmail.com" class="tran3s">203Maktab@gmail.com</a>
 								</li>
 								<li>
 									<i class="fa fa-phone" aria-hidden="true"></i>
-									<a href="tel:+8801712570051" class="tran3s">+998931234567</a>
+									<a href="#" class="tran3s">+998909069027</a>
 								</li>
 								<li><i class="fa fa-map-marker" aria-hidden="true"></i>Toshkent viloyati, Uchtepa tumani
 								</li>
 							</ul>
 						</div> <!-- /.footer-contact -->
 
-						<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12 footer-quick-link">
-							<h4>Quick link</h4>
+						<div class="col-lg-2 col-md-6 col-sm-6 col-xs-12 footer-quick-link" style="margin-left: 10%;">
+							<h4>Tezkor linklar</h4>
 							<ul>
-								<li><a href="course-v2.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Our Courses</a></li>
-								<li><a href="blog-v1.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> News/Blog</a></li>
-								<li><a href="event.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Event</a></li>
-								<li><a href="our-teacher.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Team Member</a></li>
-								<li><a href="faq.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Privacy Policy</a></li>
-								<li><a href="faq.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Help</a></li>
-								<li><a href="contact-us.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Support</a></li>
-								<li><a href="#" class="tran3s"><i class="fa fa-caret-right" aria-hidden="true"></i>
-										Education</a></li>
-								<li><a href="our-teacher.html" class="tran3s"><i class="fa fa-caret-right"
-											aria-hidden="true"></i> Teacher</a></li>
+								<li><a href="{% url 'course' %}" class="tran3s"><i class="fa fa-caret-right"
+											aria-hidden="true"></i> Bizning kurslar</a></li>
+								<li><a href="{% url 'news' %}" class="tran3s"><i class="fa fa-caret-right"
+											aria-hidden="true"></i> Yangiliklar</a></li>
+								<li><a href="{% url 'events' %}" class="tran3s"><i class="fa fa-caret-right"
+											aria-hidden="true"></i> Tadbirlar</a></li>
+								<li><a href="{% url 'teachers' %}" class="tran3s"><i class="fa fa-caret-right"
+											aria-hidden="true"></i> hodimlar</a></li>
+								<li><a href="{% url 'faq' %}" class="tran3s"><i class="fa fa-caret-right"
+											aria-hidden="true"></i> Yordam</a></li>
+								<li><a href="{% url 'contact' %}" class="tran3s"><i class="fa fa-caret-right"
+											aria-hidden="true"></i> Biz bilan bog'lanish</a></li>
+				
 							</ul>
 						</div> <!-- /.footer-quick-link -->
-
-						<div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 footer-event">
-							<h4>Latest events</h4>
-
-							<div id="footer-event-carousel" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-									<li data-target="#footer-event-carousel" data-slide-to="0" class="active"></li>
-									<li data-target="#footer-event-carousel" data-slide-to="1"></li>
-									<li data-target="#footer-event-carousel" data-slide-to="2"></li>
-								</ol>
-
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
-									<div class="item active">
-										<ul>
-											<li>
-												<div class="date p-color-bg">27 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>Learning Management</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-
-											<li>
-												<div class="date p-color-bg">19 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>LEARN COUSES ONLINE</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-
-											<li>
-												<div class="date p-color-bg">07 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>COURSES FOR FREE GED</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-										</ul>
-									</div> <!-- /.item -->
-
-									<div class="item">
-										<ul>
-											<li>
-												<div class="date p-color-bg">27 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>Learning Management</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-
-											<li>
-												<div class="date p-color-bg">19 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>LEARN COUSES ONLINE</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-
-											<li>
-												<div class="date p-color-bg">07 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>COURSES FOR FREE GED</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-										</ul>
-									</div> <!-- /.item -->
-
-									<div class="item">
-										<ul>
-											<li>
-												<div class="date p-color-bg">27 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>Learning Management</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-
-											<li>
-												<div class="date p-color-bg">19 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>LEARN COUSES ONLINE</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-
-											<li>
-												<div class="date p-color-bg">07 <span>Dec</span></div>
-												<a href="event-details.html">
-													<h6>COURSES FOR FREE GED</h6>
-												</a>
-												<ul>
-													<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm
-													</li>
-													<li><i class="fa fa-tags" aria-hidden="true"></i> Gpur Academy</li>
-												</ul>
-											</li>
-										</ul>
-									</div> <!-- /.item -->
-								</div>
-							</div> <!-- /#footer-event-carousel -->
-						</div> <!-- /.footer-event -->
 					</div> <!-- /.row -->
 				</div> <!-- /.container -->
 			</div> <!-- /.top-footer -->

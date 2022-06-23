@@ -1,5 +1,22 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
+		</li>
+		<li class="dropdown-holder current-page-item"><a href="{% url 'teachers' %}">Hodimlar</a>
+		</li>
+		<li class="dropdown-holder "><a href="{% url 'news' %}">Yangiliklar</a>
+		</li>
+		<li><a href="{% url 'contact' %}">Aloqa</a></li>
+	</ul>
+</div><!-- /.navbar-collapse -->
+{% endblock %}
 {% block content %}
 <!-- Inner Page Main Banner __________________ -->
 <div class="inner-page-banner">
@@ -11,20 +28,8 @@
 </div> <!-- /.inner-page-banner -->
 
 
-<!-- Page Breadcrum __________________________ -->
-<div class="page-breadcrum">
-	<div class="container">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>-</li>
-			<li>Teachers</li>
-		</ul>
-	</div> <!-- /.container -->
-</div> <!-- /.page-breadcrum -->
-
-
 <!-- Our Teacher ________________________ -->
-<div class="our-teacher wow fadeInUp our-teacher-single-page">
+<div class="our-teacher wow fadeInUp our-teacher-single-page" style="margin-top: 50px;">
 	<div class="container">
 		<div class="row">
 			<div class="theme-slider">
@@ -35,19 +40,17 @@
 							<img src="{{ i.image.url }}" alt="Teacher">
 							<div class="overlay round-border tran4s">
 								<ul>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+									<li><a href="#" class="tran3s round-border icon" style="padding-top: 15px;"><i class="fa fa-telegram"
 												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
-												aria-hidden="true"></i></a></li>
-									<li><a href="#" class="tran3s round-border icon"><i class="fa fa-linkedin"
+									<li><a href="#" class="tran3s round-border icon" style="padding-top: 15px;"><i class="fa fa-instagram"
 												aria-hidden="true"></i></a></li>
 								</ul>
 							</div>
 						</div> <!-- /.img-holder -->
-						<a href="teacher-profile.html">
+						<a href="{% url 'staf_details' i.id %}">
 							<h6>{{ i.first_name }} {{ i.last_name }}</h6>
 						</a>
-						<p>{{ i.experience }}</p>
+						<p>{{ i.position }}</p>
 					</div>
 				</div>
                 {% endfor %}
@@ -64,110 +67,21 @@
 
 		<div class="row">
 			<div class="theme-slider">
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">25 <span>June</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">30 <span>Dec</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">15 <span>June</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">05 <span>Sep</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">11 <span>June</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">20 <span>Nov</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">10 <span>May</span></div>
-						<a href="event-details.html">
-							<h6>Build Education STRATEGY</h6>
-						</a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting
-							your need no matter</p>
-						<ul>
-							<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-							<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-						</ul>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
+				{% for event in events %}
+					<div class="item hvr-float-shadow">
+						<div class="single-event theme-bg-color">
+							<div class="date p-color">{{ event.day }} <span>{{ event.month }}</span></div>
+							<a href="{% url 'event_details' event.id %}">
+								<h6>{{ event.topic }}</h6>
+							</a>
+							<p>{{ event.description|truncatechars:100 }}</p>
+							<ul>
+								<li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ event.place }}</li>
+								<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ event.time }}</li>
+							</ul>
+						</div> <!-- /.single-event -->
+					</div> <!-- /.item -->
+				{% endfor %}
 			</div> <!-- /.theme-slider -->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->

@@ -1,5 +1,22 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
+		</li>
+		<li class="dropdown-holder current-page-item"><a href="{% url 'events' %}">Tadbirlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
+		</li>
+		<li><a href="{% url 'contact' %}">Aloqa</a></li>
+	</ul>
+</div><!-- /.navbar-collapse -->
+{% endblock %}
 {% block content %}
 <!-- Inner Page Main Banner __________________ -->
 <div class="inner-page-banner">
@@ -11,67 +28,18 @@
 </div> <!-- /.inner-page-banner -->
 
 
-<!-- Page Breadcrum __________________________ -->
-<div class="page-breadcrum">
-	<div class="container">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>-</li>
-			<li>Event</li>
-		</ul>
-	</div> <!-- /.container -->
-</div> <!-- /.page-breadcrum -->
-
-
-
 <!-- Event Section _______________________ -->
 <div class="event-section wow fadeInUp">
 	<div class="container" style="margin-top: -100px;">
 		<div class="row">
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-				<div class="single-event theme-bg-color">
-					<div class="date p-color">25 <span>June</span></div>
-					<a href="event-details.html"><h6>Build Education STRATEGY</h6></a>
-					<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting your need no matter</p>
-					<ul>
-						<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-						<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-					</ul>
-				</div> <!-- /.single-event -->
-			</div>
-
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-				<div class="single-event theme-bg-color">
-					<div class="date p-color">26 <span>June</span></div>
-					<a href="event-details.html"><h6>Build Education STRATEGY</h6></a>
-					<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting your need no matter</p>
-					<ul>
-						<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-						<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-					</ul>
-				</div> <!-- /.single-event -->
-			</div>
-
-			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-				<div class="single-event theme-bg-color">
-					<div class="date p-color">27 <span>June</span></div>
-					<a href="event-details.html"><h6>Build Education STRATEGY</h6></a>
-					<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting your need no matter</p>
-					<ul>
-						<li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-						<li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-					</ul>
-				</div> <!-- /.single-event -->
-			</div>
-
             {% for i in events %}
 			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-				<div class="single-event theme-bg-color">
-					<div class="date p-color">{{ i.start_time.day }}<span>{{ i.start_time.month }}</span></div>
-					<a href="event-details.html">
+				<div class="single-event theme-bg-color" style="min-height: 280px;">
+					<div class="date p-color">{{ i.start_time.day }}<span>{{ i.month }}</span></div>
+					<a href="{% url 'event_details' i.id %}">
 						<h6>{{ i.topic }}</h6>
 					</a>
-					<p>{{ i.description }}</p>
+					<p>{{ i.description | truncatechars:80 }}</p>
 					<ul>
 						<li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ i.place }}</li>
 						<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ i.end_time }}</li>
@@ -93,40 +61,14 @@
 			<div class="theme-slider">
 				{% for course in courses %}
 					<div class="item hvr-float-shadow">
-						<img src="{{ course.image.url }}" alt="Image">
+						<img class="course-image" src="{{ course.image.url }}" alt="Image">
 						<div class="single-event theme-bg-color">
-							<div class="date p-color">{{ course.time.day }} <span>{{ course.time.month }}</span></div>
-							<a href="event-details.html"><h6>{{ course.title }}</h6></a>
-							<p>{{ course.description }}</p>
+							<div class="date p-color">{{ course.time.day }} <span>{{ course.month }}</span></div>
+							<a href="{% url 'event_details' course.id %}"><h6>{{ course.title }}</h6></a>
+							<p>{{ course.description | truncatechars:100 }}</p>
 						</div> <!-- /.single-event -->
 					</div> <!-- /.item -->
 				{% endfor %}
-				<div class="item hvr-float-shadow">
-					<img src="{% static 'images/inner-page/10.jpg' %}" alt="Image">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">30 <span>Dec</span></div>
-						<a href="event-details.html"><h6>Build Education STRATEGY</h6></a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting your need no matter</p>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<img src="{% static 'images/inner-page/11.jpg' %}" alt="Image">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">15 <span>June</span></div>
-						<a href="event-details.html"><h6>Build Education STRATEGY</h6></a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting your need no matter</p>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
-
-				<div class="item hvr-float-shadow">
-					<img src="{% static 'images/inner-page/9.jpg' %}" alt="Image">
-					<div class="single-event theme-bg-color">
-						<div class="date p-color">05 <span>Sep</span></div>
-						<a href="event-details.html"><h6>Build Education STRATEGY</h6></a>
-						<p>Tech you how to build a complete Learning Management Offering a various of solutions meeting your need no matter</p>
-					</div> <!-- /.single-event -->
-				</div> <!-- /.item -->
 			</div> <!-- /.theme-slider -->
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->

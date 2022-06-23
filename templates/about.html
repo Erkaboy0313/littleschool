@@ -1,0 +1,168 @@
+﻿{% extends 'base.html' %}
+{% load static %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
+		</li>
+		<li class="dropdown-holder current-page-item"><a href="{% url 'about_us' %}">Biz haqimizda</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
+		</li>
+		<li><a href="{% url 'contact' %}">Aloqa</a></li>
+	</ul>
+</div><!-- /.navbar-collapse -->
+{% endblock %}
+{% block content %}
+<!-- Inner Page Main Banner __________________ -->
+<div class="inner-page-banner">
+	<div class="opacity">
+		<div class="container">
+			<h2>Biz haqimizda</h2>
+		</div> <!-- /.container -->
+	</div> <!-- /.opacity -->
+</div> <!-- /.inner-page-banner -->
+
+<!-- Welcome Section ___________________________ -->
+<div class="welcome-section">
+	<div class="container">
+		<div class="section-title wow fadeInUp">
+			<h2 class="p-color"> xush kelibsiz</h2>
+			<h5>Muvaffaqayatli o'quvchilarimiz safiga qo'shiling</h5>
+			<p>Iqtidorli yoshlarni aniqlash, tanlash, o‘qitish va tarbiyalash, yosh iste’dodlarni yanada
+				qo‘llab-quvvatlash va rag‘batlantirish, darsliklar va o‘quv-uslubiy qo‘llanmalarni tayyorlash va nashr
+				etishdagi muammolarni bartaraf qilish ishlarini sifat jihatidan yangi bosqichga ko‘tarish</p>
+		</div> <!-- /.section-title -->
+
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
+				<h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Biz bilan ta'lim oling</h3>
+				<p>Biz bilan ta'lim oling va ko'plab imkoniyatlarga ega bo'ling. Bizning tajribali
+					o'qituvchilar va bizda yaratilgan sharoitlar sizni yoki farzandingizni sifatli
+					ta'lim olishini kafolatlaydi.
+				</p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
+				<h3><i class="fa fa-tags" aria-hidden="true"></i> Sifatli to'garaklar</h3>
+				<p> Bizdagi mavjud sifatli to'garaklar yordamida siz yoki sizning farzandingizni
+					darslar davomida o'zlashtirgan bilimlarini yanada mukamallashtirish imkoniyatiga
+					ega bo'ladilar. </p>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
+				<h3><i class="fa fa-diamond" aria-hidden="true"></i> Bizdagi sharoitlar</h3>
+				<p>Maktabimiz o'quvchilar ta'lim olishi uchun yetarli sharoitlar yaratilgan. Maxsus sinfxonalari
+					jismoniy tarbiya mashg'ulotlarini o'tkazish uchun sport zallari, zamonaviy texnologiyalarni
+					o'rganish uchun kompyuterxonalari mavjud. </p>
+			</div>
+		</div>
+	</div> <!-- /.container -->
+</div> <!-- /.welcome-section -->
+
+
+<!-- course Progress  __________________________ -->
+<div class="course-progress" style="margin-top: 50px;">
+	<div class="opacity">
+		<div class="container">
+			<h2>Ko'plab bilimlarni <span class="p-color">Biz bilan</span> o'rganing</h2>
+			<p>Farzangingizni sifatli ta'lim olishi uchun qulay sharoitlar yaratilgan.</p>
+			<h6>Bizning Natijalarimiz</h6>
+
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<div class="icon"> <i class="ficon flaticon-crowdfunding"></i> </div>
+					<p>Tajribali ustozlar</p>
+					<div class="number"><span class="timer" data-from="0" data-to="{{ statistics.teachers }}"
+							data-speed="1500" data-refresh-interval="5">0</span></div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<div class="icon"><i class="ficon flaticon-teamwork"></i></div>
+					<p>Bitiruvchi o'quvchilar</p>
+					<div class="number"><span class="timer" data-from="0" data-to="{{ statistics.finishers }}"
+							data-speed="1500" data-refresh-interval="5">0</span></div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<div class="icon"><i class="ficon flaticon-medical"></i></div>
+					<p>Barcha o'quvchilar</p>
+					<div class="number"><span class="timer" data-from="0" data-to="{{ statistics.pupils }}"
+							data-speed="1500" data-refresh-interval="5">0</span></div>
+				</div>
+				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+					<div class="icon"><i class="ficon flaticon-book"></i></div>
+					<p>Maxsus Kurslar</p>
+					<div class="number"><span class="timer" data-from="0" data-to="{{ statistics.special_courses }}"
+							data-speed="1500" data-refresh-interval="5">0</span></div>
+				</div>
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</div> <!-- /.opacity -->
+</div> <!-- /.course-progress -->
+
+<!-- Our Teacher ________________________ -->
+<div class="our-teacher wow fadeInUp">
+	<div class="container">
+		<div class="theme-title">
+			<h2>Bizning o'qituvchilarimiz</h2>
+			<p>10 yildan ortiq tajribaga ega bo'lga o'qituvchilarimiz</p>
+		</div>
+
+		<div class="row">
+			<div class="theme-slider">
+				{% for teacher in teachers %}
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="{{ teacher.image.url }}" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a class="tran3s round-border icon" style="padding-top: 15px ;"><i class="fa fa-telegram"
+												aria-hidden="true"></i></a></li>
+									<li><a class="tran3s round-border icon" style="padding-top: 15px;"><i class="fa fa-instagram"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="{% url 'staf_details' teacher.id %}">
+							<h6>{{ teacher.first_name }} {{ teacher.lastname }}</h6>
+						</a>
+						<p>{{ teacher.position }}</p>
+					</div>
+				</div> <!-- /.item -->
+				{% endfor %}
+			</div>
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</div> <!-- /.our-teacher -->
+
+
+<!-- Latest Event Slider Section _______ -->
+<div class="latest-event-slider event-section wow fadeInUp">
+	<div class="container">
+		<h3>So'ngi tadbirlar</h3>
+
+		<div class="row">
+			<div class="theme-slider">
+				{% for event in events %}
+				<div class="item wow fadeInUp hvr-float-shadow">
+					<div class="single-event theme-bg-color">
+						<div class="date p-color">{{ event.day }} <span>{{ event.month }}</span></div>
+						<a href="{% url 'event_details' event.id %}">
+							<h6>{{ event.topic }}</h6>
+						</a>
+						<p>{{ event.description |truncatechars:100 }}</p>
+						<ul>
+							<li><i class="fa fa-map-marker" aria-hidden="true"></i> {{ event.place }}</li>
+							<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ event.time }}</li>
+						</ul>
+					</div> <!-- /.single-event -->
+				</div> <!-- /.item -->
+				{% endfor %}
+			</div> <!-- /.theme-slider -->
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</div> <!-- /.latest-event-slider -->
+
+{% endblock content %}

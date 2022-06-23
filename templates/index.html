@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block head %}
+{% include 'header.html' %}
+{% endblock head %}
 {% block content %}
 <!-- Theme Banner ________________________________ -->
 <div id="banner">
@@ -14,7 +17,7 @@
                     data-rotate="0" data-saveperformance="off" data-title="Title Goes Here" data-description="">
                     <!-- MAIN IMAGE -->
                     <img src="{% static 'images/home/slide-1.jpg' %}" alt="image" class="rev-slidebg"
-                        data-bgparallax="3" data-bgposition="center center" data-duration="20000"
+                        data-bgparallax="3" data-bgposition="center center" data-duration="10000"
                         data-ease="Linear.easeNone" data-kenburns="on" data-no-retina="" data-offsetend="0 0"
                         data-offsetstart="0 0" data-rotateend="0" data-rotatestart="0" data-scaleend="100"
                         data-scalestart="140">
@@ -22,7 +25,7 @@
 
                     <!-- LAYER NR. 1 -->
                     <div class="tp-caption" data-x="['left','left','left','left']" data-hoffset="['0','25','35','15']"
-                        data-y="['middle','middle','middle','middle']" data-voffset="['-56','-56','-45','-150']"
+                        data-y="['middle','middle','middle','middle']" data-voffset="['-56','-56','-45','-50']"
                         data-width="none" data-height="none" data-whitespace="nowrap" data-transform_idle="o:1;"
                         data-transform_in="y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;s:2000;e:Power4.easeInOut;"
                         data-transform_out="y:[100%];s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;"
@@ -134,45 +137,38 @@
     </div><!-- END REVOLUTION SLIDER -->
 </div> <!--  /#banner -->
 
-
-
-
-
 <!-- Welcome Section ___________________________ -->
 <div class="welcome-section">
     <div class="container">
         <div class="section-title wow fadeInUp">
             <h2 class="p-color"> xush kelibsiz</h2>
             <h5>Muvaffaqayatli o'quvchilarimiz safiga qo'shiling</h5>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis cum quasi sequi facilis
-                facere quod ipsam deleniti vero ab. Doloribus atque molestiae dolorum illo sunt, cumque maiores
-                magnam iusto reiciendis!</p>
+            <p>Iqtidorli yoshlarni aniqlash, tanlash, o‘qitish va tarbiyalash, yosh iste’dodlarni yanada qo‘llab-quvvatlash va rag‘batlantirish, darsliklar va o‘quv-uslubiy qo‘llanmalarni tayyorlash va nashr etishdagi muammolarni bartaraf qilish ishlarini sifat jihatidan yangi bosqichga ko‘tarish</p>
         </div> <!-- /.section-title -->
 
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
-                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> LEARN COUSES first</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                    voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi perferendis
-                    voluptas? Quia repellendus excepturi sint aperiam vero! </p>
+                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Biz bilan ta'lim oling</h3>
+                <p>Biz bilan ta'lim oling va ko'plab imkoniyatlarga ega bo'ling. Bizning tajribali 
+                    o'qituvchilar va bizda yaratilgan sharoitlar sizni yoki farzandingizni sifatli
+                    ta'lim olishini kafolatlaydi. 
+                </p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
-                <h3><i class="fa fa-tags" aria-hidden="true"></i> 440 Courses available</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                    voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi perferendis
-                    voluptas? Quia repellendus excepturi sint aperiam vero! </p>
+                <h3><i class="fa fa-tags" aria-hidden="true"></i> Sifatli to'garaklar</h3>
+                <p> Bizdagi mavjud sifatli to'garaklar yordamida siz yoki sizning farzandingizni
+                    darslar davomida o'zlashtirgan bilimlarini yanada mukamallashtirish imkoniyatiga
+                    ega bo'ladilar. </p>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
-                <h3><i class="fa fa-diamond" aria-hidden="true"></i> Everything you need</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                    voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi perferendis
-                    voluptas? Quia repellendus excepturi sint aperiam vero! </p>
+                <h3><i class="fa fa-diamond" aria-hidden="true"></i> Bizdagi sharoitlar</h3>
+                <p>Maktabimiz o'quvchilar ta'lim olishi uchun yetarli sharoitlar yaratilgan. Maxsus sinfxonalari
+                   jismoniy tarbiya mashg'ulotlarini o'tkazish uchun sport zallari, zamonaviy texnologiyalarni
+                   o'rganish uchun kompyuterxonalari mavjud. </p>
             </div>
         </div>
     </div> <!-- /.container -->
 </div> <!-- /.welcome-section -->
-
-
 
 <!-- Popular Course _________________________ -->
 <div class="popular-course wow fadeInUp theme-bg-color">
@@ -183,84 +179,19 @@
             <div class="theme-slider course-item-wrapper">
                 {% for course in courses %}
                 <div class="item hvr-float-shadow">
-                    <div class="img-holder"><img src="{{ course.image.url }}" alt="Image"></div>
+                    <div class="img-holder"><img class="course-image" src="{{ course.image.url }}" alt="Image"></div>
                     <div class="text">
-                        <h4><a href="course-details.html">Tarix</a></h4>
+                        <h4><a href="{% url 'course_details' course.id %}">{{ course.title }}</a></h4>
                         <div class="img round-border"><img src="{{ course.teacher.image.url }}" alt="Image"></div>
-                        <h6>{{ course.teacher.first_name }}{{ course.teacher.last_name }}</h6>
-                        <p>{{ course.description }}</p>
+                        <h6>{{ course.teacher.first_name }} {{ course.teacher.last_name }}</h6>
+                        <p>{{ course.description|truncatechars:100 }}</p>
                     </div> <!-- /.text -->
                 </div> <!-- /.item -->
                 {% endfor %}
-                <div class="item hvr-float-shadow">
-                    <div class="img-holder"><img src="{% static 'images/home/3.jpg' %}" alt="Image"></div>
-                    <div class="text">
-                        <h4><a href="course-details.html">Nemis tili mashg'ulotlari</a></h4>
-                        <div class="img round-border"><img src="{% static 'images/home/1.png' %}" alt="Image"></div>
-                        <h6>Mahfuz riad</h6>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                            voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
-                            perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-                    </div> <!-- /.text -->
-                </div> <!-- /.item -->
-
-                <div class="item hvr-float-shadow">
-                    <div class="img-holder"><img src="{% static 'images/home/4.jpg' %}" alt="Image"></div>
-                    <div class="text">
-                        <h4><a href="course-details.html">Kun tartibini rejalashtirish</a></h4>
-                        <div class="img round-border"><img src="{% static 'images/home/1.png' %}" alt="Image"></div>
-                        <h6>Mahfuz riad</h6>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                            voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
-                            perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-                    </div> <!-- /.text -->
-                </div> <!-- /.item -->
-
-                <div class="item hvr-float-shadow">
-                    <div class="img-holder"><img src="{% static 'images/home/3.jpg' %}" alt="Image"></div>
-                    <div class="text">
-                        <h4><a href="course-details.html">Kompyuter savodxonligi</a></h4>
-                        <div class="img round-border"><img src="{% static 'images/home/1.png' %}" alt="Image"></div>
-                        <h6>Mahfuz riad</h6>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                            voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
-                            perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-
-                    </div> <!-- /.text -->
-                </div> <!-- /.item -->
-
-                <div class="item hvr-float-shadow">
-                    <div class="img-holder"><img src="{% static 'images/home/2.jpg' %}" alt="Image"></div>
-                    <div class="text">
-                        <h4><a href="course-details.html">Veb sayt tayyorlash</a></h4>
-                        <div class="img round-border"><img src="{% static 'images/home/1.png' %}" alt="Image"></div>
-                        <h6>Mahfuz riad</h6>
-
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                            voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
-                            perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-
-                    </div> <!-- /.text -->
-                </div> <!-- /.item -->
-
-                <div class="item hvr-float-shadow">
-                    <div class="img-holder"><img src="{% static 'images/home/4.jpg' %}" alt="Image"></div>
-                    <div class="text">
-                        <h4><a href="course-details.html">Mental Arifmetika</a></h4>
-                        <div class="img round-border"><img src="{% static 'images/home/1.png' %}" alt="Image"></div>
-                        <h6>Mahfuz riad</h6>
-
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam consectetur sequi
-                            voluptates id libero placeat eaque, consequuntur ipsa fuga sapiente at excepturi
-                            perferendis voluptas? Quia repellendus excepturi sint aperiam vero!</p>
-
-                    </div> <!-- /.text -->
-                </div> <!-- /.item -->
             </div> <!-- /.course-slider -->
         </div>
     </div> <!-- /.container -->
 </div> <!-- /.popular-course -->
-
 
 <!-- course Progress  __________________________ -->
 <div class="course-progress">
@@ -291,7 +222,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                     <div class="icon"><i class="ficon flaticon-book"></i></div>
-                    <p>Maxsus Kurslar</p>
+                    <p>To'garaklar</p>
                     <div class="number"><span class="timer" data-from="0" data-to="{{ statistics.special_courses }}" data-speed="1500"
                             data-refresh-interval="5">0</span></div>
                 </div>
@@ -300,14 +231,12 @@
     </div> <!-- /.opacity -->
 </div> <!-- /.course-progress -->
 
-
-
 <!-- Event Section _______________________ -->
 <div class="event-section wow fadeInUp">
     <div class="container">
         <div class="theme-title">
             <h2>Tadbirlar</h2>
-            <p>Kutilayotgan Tadbir va Musobaqalar</p>
+            <p>Tadbir va Musobaqalar</p>
         </div>
 
         <div class="row">
@@ -315,10 +244,10 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
                 <div class="single-event theme-bg-color">
                     <div class="date p-color">{{ event.day }}<span>{{ event.month }}</span></div>
-                    <a href="event-details.html">
-                        <h6>{{ event.title }}</h6>
+                    <a href="{% url 'event_details' event.id %}">
+                        <h6>{{ event.topic }}</h6>
                     </a>
-                    <p>{{ event.description }}</p>
+                    <p>{{ event.description|truncatechars:100 }}</p>
                     <ul>
                         <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ event.place }}</li>
                         <li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ event.time }}</li>
@@ -326,41 +255,9 @@
                 </div> <!-- /.single-event -->
             </div>
             {% endfor %}
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-                <div class="single-event theme-bg-color">
-                    <div class="date p-color">26 <span>June</span></div>
-                    <a href="event-details.html">
-                        <h6>Build Education STRATEGY</h6>
-                    </a>
-                    <p>Tech you how to build a complete Learning Management Offering a various of solutions
-                        meeting your need no matter</p>
-                    <ul>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-                    </ul>
-                </div> <!-- /.single-event -->
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-                <div class="single-event theme-bg-color">
-                    <div class="date p-color">27 <span>June</span></div>
-                    <a href="event-details.html">
-                        <h6>Build Education STRATEGY</h6>
-                    </a>
-                    <p>Tech you how to build a complete Learning Management Offering a various of solutions
-                        meeting your need no matter</p>
-                    <ul>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Barisal,CA</li>
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i> 10am - 05pm</li>
-                    </ul>
-                </div> <!-- /.single-event -->
             </div>
         </div> <!-- /.row -->
     </div> <!-- /.container -->
-</div> <!-- /.event-section -->
-
-
 
 <!-- Information Banner _______________________ -->
 <div class="information-banner wow fadeInUp">
@@ -370,10 +267,6 @@
         <a href="{% url 'contact' %}" class="p-color-bg tran3s wow fadeInUp">bo'glanish</a>
     </div> <!-- /.container -->
 </div> <!-- /.information-banner -->
-
-
-
-
 
 <!-- Latest News ___________________________ -->
 <div class="latest-news wow fadeInUp theme-bg-color">
@@ -388,52 +281,20 @@
             <div class="single-post wow fadeInUp col-lg-4 col-md-4 col-sm-6 col-xs-6">
                 <div class="img-holder">
                     <div class="date wow fadeInUp p-color-bg">{{ new.day }} <span>{{ new.month }}</span></div>
-                    <img src="{{ new.image.url }}" alt="Image">
-                    <a href="blog-details.html" class="tran4s"></a>
+                    <img class="news-image" src="{{ new.image.url }}" alt="Image">
+                    <a href="{% url 'news_details' new.id %}" class="tran4s"></a>
                 </div>
                 <div class="text-wrapper">
                     <div class="text tran4s">
-                        <a href="blog-details.html"> {{ new.title }} </a>
-                        <p>{{ new.description|truncatechars:100 }}</p>
+                        <a href="{% url 'news_details' new.id %}"> {{ new.title }} </a>
+                        <p>{{ new.description|truncatechars:150 }}</p>
                     </div> <!-- /.text -->
                 </div> <!-- /.text-wrapper -->
             </div> <!-- /.single-post -->
             {% endfor %}
-
-            <div class="single-post wow fadeInUp col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                <div class="img-holder">
-                    <div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-                    <img src="{% static 'images/blog/2.jpg' %}" alt="Image">
-                    <a href="blog-details.html" class="tran4s"></a>
-                </div>
-                <div class="text-wrapper">
-                    <div class="text tran4s">
-                        <a href="blog-details.html">New school budget </a>
-                        <p>Education is the process of facilitating learning. Knowledge kills, values, beliefs,
-                            and habits of a group of people are trans- ferred </p>
-                    </div> <!-- /.text -->
-                </div> <!-- /.text-wrapper -->
-            </div> <!-- /.single-post -->
-
-            <div class="single-post wow fadeInUp col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                <div class="img-holder">
-                    <div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-                    <img src="{% static 'images/blog/3.jpg' %}" alt="Image">
-                    <a href="blog-details.html" class="tran4s"></a>
-                </div>
-                <div class="text-wrapper">
-                    <div class="text tran4s">
-                        <a href="blog-details.html">New school budget </a>
-                        <p>Education is the process of facilitating learning. Knowledge kills, values, beliefs,
-                            and habits of a group of people are trans- ferred </p>
-                    </div> <!-- /.text -->
-                </div> <!-- /.text-wrapper -->
-            </div> <!-- /.single-post -->
         </div> <!-- /.post-wrapper -->
     </div> <!-- /.container -->
 </div> <!-- /.latest-news -->
-
-
 
 <!-- Testimonial And FAQ Section _________________________ -->
 <div class="test-faq">
@@ -445,56 +306,38 @@
                     <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
                         <!-- Indicators -->
                         <ol class="carousel-indicators">
-                            <li data-target="#testimonial-carousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#testimonial-carousel" data-slide-to="1"></li>
-                            <li data-target="#testimonial-carousel" data-slide-to="2"></li>
+                            {% for o in opinions %}
+                                {% if forloop.first %}
+                                <li data-target="#testimonial-carousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                                {% else %}
+                                <li data-target="#testimonial-carousel" data-slide-to="{{ forloop.counter0 }}"></li>
+                                {% endif %}
+                            {% endfor %}
                         </ol>
 
                         <!-- Wrapper for slides -->
                         <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="{% static 'images/home/2.png' %}" alt="Image">
-                                    </div>
-                                    <h6>ghost riad <span>(Sir.Principal)</span></h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                        consectetur sequi voluptates id libero placeat eaque, consequuntur ipsa
-                                        fuga sapiente at excepturi perferendis voluptas? Quia repellendus
-                                        excepturi sint aperiam vero!</p>
-                                </div> <!-- /.single-box -->
-
-                                <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="{% static 'images/home/3.png' %}" alt="Image">
-                                    </div>
-                                    <h6>Masum nodi <span>(Sir.Principal Fohinni)</span></h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                        consectetur sequi voluptates id libero placeat eaque, consequuntur ipsa
-                                        fuga sapiente at excepturi perferendis voluptas? Quia repellendus
-                                        excepturi sint aperiam vero!</p>
-                                </div> <!-- /.single-box -->
-                            </div>
-
-                            <div class="item">
-                                <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="{% static 'images/home/2.png' %}" alt="Image">
-                                    </div>
-                                    <h6>ghost riad <span>(Sir.Principal)</span></h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                        consectetur sequi voluptates id libero placeat eaque, consequuntur ipsa
-                                        fuga sapiente at excepturi perferendis voluptas? Quia repellendus
-                                        excepturi sint aperiam vero!</p>
-                                </div> <!-- /.single-box -->
-
-                                <div class="single-box theme-bg-color">
-                                    <div class="img round-border"><img src="{% static 'images/home/3.png' %}" alt="Image">
-                                    </div>
-                                    <h6>Masum nodi <span>(Sir.Principal Fohinni)</span></h6>
-                                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                        consectetur sequi voluptates id libero placeat eaque, consequuntur ipsa
-                                        fuga sapiente at excepturi perferendis voluptas? Quia repellendus
-                                        excepturi sint aperiam vero!</p>
-                                </div> <!-- /.single-box -->
-                            </div>
+                            {% for o in opinions %}
+                                {% if forloop.first %}
+                                <div class="item active">
+                                    <div class="single-box theme-bg-color">
+                                        <div class="img round-border"><img src="{% static 'images/home/user.png' %}" alt="Image">
+                                        </div>
+                                        <h6>{{ o.first_name }} {{ o.last_name }}</h6>
+                                        <p>{{ o.opinion|truncatechars:150 }}</p>
+                                    </div> <!-- /.single-box -->
+                                </div>
+                                {% else %}
+                                <div class="item">
+                                    <div class="single-box theme-bg-color">
+                                        <div class="img round-border"><img src="{% static 'images/home/user.png' %}" alt="Image">
+                                        </div>
+                                        <h6>{{ o.first_name }} {{ o.last_name }}</h6>
+                                        <p>{{ o.opinion|truncatechars:150 }}</p>
+                                    </div> <!-- /.single-box -->
+                                </div>
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div> <!-- /#testimonial-carousel -->
                 </div> <!-- /.wrapper -->
@@ -507,6 +350,7 @@
                     <div class="faq_panel">
                         <div class="panel-group theme-accordion" id="accordion">
                             {% for f in faq %}
+                                {% if forloop.first %}
                                 <div class="panel">
                                     <div class="panel-heading active-panel">
                                         <h6 class="panel-title">
@@ -514,49 +358,28 @@
                                                 {{ f.question }}</a>
                                         </h6>
                                     </div>
-                                    <div id="collapse1" class="panel-collapse collapse in">
+                                    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse in">
                                         <div class="panel-body">
                                             <p>{{ f.answer }}</p>
                                         </div>
                                     </div>
                                 </div> <!-- /panel 1 -->
+                                {% else %}
+                                <div class="panel">
+                                    <div class="panel-heading ">
+                                        <h6 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
+                                                {{ f.question }}</a>
+                                        </h6>
+                                    </div>
+                                    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse out">
+                                        <div class="panel-body">
+                                            <p>{{ f.answer }}</p>
+                                        </div>
+                                    </div>
+                                </div> <!-- /panel 1 -->
+                                {% endif %}
                             {% endfor %}
-
-
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h6 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
-                                            Build Education Website Using HTML</a>
-                                    </h6>
-                                </div>
-                                <div id="collapse4" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                            consectetur sequi voluptates id libero placeat eaque, consequuntur
-                                            ipsa fuga sapiente at excepturi perferendis voluptas? Quia
-                                            repellendus excepturi sint aperiam vero!</p>
-                                    </div>
-                                </div>
-                            </div> <!-- /panel 4 -->
-
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h6 class="panel-title">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
-                                            BEST INDUSTRY LEADERS for awesome courses</a>
-                                    </h6>
-                                </div>
-                                <div id="collapse5" class="panel-collapse collapse">
-                                    <div class="panel-body">
-                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam
-                                            consectetur sequi voluptates id libero placeat eaque, consequuntur
-                                            ipsa fuga sapiente at excepturi perferendis voluptas? Quia
-                                            repellendus excepturi sint aperiam vero!</p>
-                                    </div>
-                                </div>
-                            </div> <!-- /panel 5 -->
-
                         </div> <!-- end #accordion -->
                     </div> <!-- End of .faq_panel -->
                 </div> <!-- /.wrapper -->

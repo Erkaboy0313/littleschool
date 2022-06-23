@@ -1,5 +1,22 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="dropdown-holder"><a href="{% url 'index' %}">Bosh sahifa</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
+		</li>
+		<li class="current-page-item"><a href="{% url 'contact' %}">Aloqa</a></li>
+	</ul>
+</div><!-- /.navbar-collapse -->
+{% endblock %}
 {% block content %}
 <!-- Inner Page Main Banner __________________ -->
 <div class="inner-page-banner">
@@ -11,33 +28,24 @@
 </div> <!-- /.inner-page-banner -->
 
 
-<!-- Page Breadcrum __________________________ -->
-<div class="page-breadcrum">
-	<div class="container">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>-</li>
-			<li>Contact us</li>
-		</ul>
-	</div> <!-- /.container -->
-</div> <!-- /.page-breadcrum -->
-
 
 <!-- Contact Us Form _____________________ -->
-<div class="contact-us-page">
+<div class="contact-us-page" style="margin-top: 100px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 wow fadeInLeft">
 				<div class="contact-us-form">
 					<h3>Habar yuborish</h3>
-					<p>Sizni email manzilingiz namoish etilmaydi.</p>
-					<form action="inc/sendemail.php" class="form-validation" autocomplete="off">
+					<p>Sizni qiziqtirgan istalgan savol yuzasidan murojaat qilishingiz mumkun. Yoki fikr va mulohazalaringizni qoldirishingiz mumkun</p>
+					<form class="form-validation" autocomplete="off" method="post">
+						{% csrf_token %}
+						{% include 'partials/_flash_messages.html' %}
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<input name="name" type="text" placeholder="FISH">
+								<input name="name" type="text" placeholder="Ism">
 							</div>
 							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-								<input name="email" type="email" placeholder="email">
+								<input name="last_name" type="text" placeholder="Familia">
 							</div>
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<input name="sub" type="text" placeholder="Mavzu">
@@ -48,32 +56,12 @@
 							</div>
 						</div>
 					</form>
-
-					<!-- Contact alert -->
-					<div class="alert_wrapper" id="alert_success">
-						<div id="success">
-							<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
-							<div class="wrapper">
-								<p>Habaringiz muvoffaqiyatli jo'natildi.</p>
-							</div>
-						</div>
-					</div> <!-- End of .alert_wrapper -->
-					<div class="alert_wrapper" id="alert_error">
-						<div id="error">
-							<button class="closeAlert"><i class="fa fa-times" aria-hidden="true"></i></button>
-							<div class="wrapper">
-								<p>Kechirasiz! Xatolik yuz berdi.</p>
-							</div>
-						</div>
-					</div> <!-- End of .alert_wrapper -->
 				</div> <!-- /.contact-us-form -->
 			</div> <!-- /.col- -->
-
 			<div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 wow fadeInRight">
 				<div class="contactUs-address">
 					<h3>Biz bilan bog'lanish</h3>
-					<p>Veb sahifamizga hush kelibsiz, Biz bilan bemalol aloqaga chiqishingiz mumkun</p>
-
+					<p>Veb sahifamizga hush kelibsiz, Agar sizda talab va takliflar yoki qiziqtirgan savollar bo'lsa biz bilan aloqaga chiqing</p>
 					<ul>
 						<li>
 							<i class="fa fa-envelope-o" aria-hidden="true"></i>
@@ -81,11 +69,10 @@
 						</li>
 						<li>
 							<i class="fa fa-phone" aria-hidden="true"></i>
-							<a href="#" class="tran3s">+998931234567</a>
+							<a href="#" class="tran3s">+998909069027</a>
 						</li>
 						<li><i class="fa fa-map-marker" aria-hidden="true"></i>Toshkent viloyati, Uchtepa tumani
 					</ul>
-
 				</div> <!-- /.our-address -->
 			</div>
 		</div> <!-- /.row -->

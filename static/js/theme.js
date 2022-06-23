@@ -161,7 +161,7 @@ function googlMap () {
   if($("#google-map").length) {
     var settingsItemsMap = {
           zoom: 12,
-          center: new google.maps.LatLng(40.925372, -74.276544),
+          center: new google.maps.LatLng(41.27090250000002, 69.1588348511053),
           zoomControlOptions: {
             style: google.maps.ZoomControlStyle.LARGE
           },
@@ -171,7 +171,7 @@ function googlMap () {
       var map = new google.maps.Map(document.getElementById('google-map'), settingsItemsMap );
       var image = 'images/logo/map.png';
       var myMarker = new google.maps.Marker({
-          position: new google.maps.LatLng(40.925372, -74.276544),
+          position: new google.maps.LatLng(41.27090250000002, 69.1588348511053),
           draggable: true,
           icon: image
       });

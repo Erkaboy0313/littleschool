@@ -1,5 +1,22 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
+		</li>
+		<li class="dropdown-holder current-page-item"><a href="{% url 'news' %}">Yangiliklar</a>
+		</li>
+		<li><a href="{% url 'contact' %}">Aloqa</a></li>
+	</ul>
+</div><!-- /.navbar-collapse -->
+{% endblock %}
 {% block content %}
 <!-- Inner Page Main Banner __________________ -->
 <div class="inner-page-banner">
@@ -11,21 +28,8 @@
 </div> <!-- /.inner-page-banner -->
 
 
-<!-- Page Breadcrum __________________________ -->
-<div class="page-breadcrum">
-	<div class="container">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>-</li>
-			<li>Blog</li>
-		</ul>
-	</div> <!-- /.container -->
-</div> <!-- /.page-breadcrum -->
-
-
-
 <!-- Blog V2 __________________________ -->
-<div class="blog-v2">
+<div class="blog-v2" style="margin-top: 50px;">
 	<div class="container">
 		<div class="row">
 
@@ -34,73 +38,23 @@
                     {% for i in news %}
 					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
 						<div class="img-holder">
-							<div class="date wow fadeInUp p-color-bg">{{ i.time.day }}<span>{{ i.time.month }}</span></div>
-							<img src="{{ i.image.url }}" alt="Image">
+							<div class="date wow fadeInUp p-color-bg">{{ i.time.day }}<span>{{ i.month }}</span></div>
+							<img class="news-image" src="{{ i.image.url }}" alt="Image">
 							<a href="blog-details.html" class="tran4s"></a>
 						</div>
 						<div class="text-wrapper">
 							<div class="text tran4s">
-								<a href="blog-details.html">{{ i.title }}</a>
-								<p>{{ i.description }}</p>
+								<a href="{% url 'news_details' i.id }">{{ i.title }}</a>
+								<p>{{ i.description | truncatechars:100 }}</p>
 							</div> <!-- /.text -->
 						</div> <!-- /.text-wrapper -->
 					</div> <!-- /.single-post -->
                     {% endfor %}
-					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
-						<div class="img-holder">
-							<div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-							<img src="{% static 'images/blog/2.jpg' %}" alt="Image">
-							<a href="blog-details.html" class="tran4s"></a>
-						</div>
-						<div class="text-wrapper">
-							<div class="text tran4s">
-								<a href="blog-details.html">New school budget </a>
-								<p>Education is the process of facilitating learning. Knowledge kills, values, beliefs, and habits of a group of people are transferred </p>
-							</div> <!-- /.text -->
-						</div> <!-- /.text-wrapper -->
-					</div> <!-- /.single-post -->
-
-					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
-						<div class="img-holder">
-							<div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-							<img src="{% static 'images/blog/5.jpg' %}" alt="Image">
-							<a href="blog-details.html" class="tran4s"></a>
-						</div>
-						<div class="text-wrapper">
-							<div class="text tran4s">
-								<a href="blog-details.html">New school budget </a>
-								<p>Education is the process of facilitating learning. Knowledge kills, values, beliefs, and habits of a group of people are transferred </p>
-							</div> <!-- /.text -->
-						</div> <!-- /.text-wrapper -->
-					</div> <!-- /.single-post -->
-
-					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
-						<div class="img-holder">
-							<div class="date wow fadeInUp p-color-bg">12 <span>Sep</span></div>
-							<img src="{% static 'images/blog/6.jpg' %}" alt="Image">
-							<a href="blog-details.html" class="tran4s"></a>
-						</div>
-						<div class="text-wrapper">
-							<div class="text tran4s">
-								<a href="blog-details.html">New school budget </a>
-								<p>Education is the process of facilitating learning. Knowledge kills, values, beliefs, and habits of a group of people are transferred </p>
-							</div> <!-- /.text -->
-						</div> <!-- /.text-wrapper -->
-					</div> <!-- /.single-post -->
-
 				</div>
 			</div>
 			<!-- _______________ SideBar ___________________ -->
 			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 sidebarOne">
 				<div class="wrapper-left">
-					<div class="sidebar-box sidebar-search">
-						<div class="box-wrapper">
-							<form action="#">
-								<input type="text" placeholder="Search">
-								<button><i class="fa fa-search" aria-hidden="true"></i></button>
-							</form>
-						</div> <!-- /.box-wrapper -->
-					</div> <!-- /.sidebar-box.sidebar-search -->
 					<div class="sidebar-box talent-teacher">
 						<div class="box-wrapper">
 							<h4>Talent teacher</h4>
@@ -116,8 +70,9 @@
 								<!-- Wrapper for slides -->
 								<div class="carousel-inner" role="listbox">
                                     {% for i in teachers %}
+									{% if forloop.counter == 1 %}
 									<div class="item active">
-										<img src="{{ i.image.url }}" alt="Teacher">
+										<img style="width: 100px;" src="{{ i.image.url }}" alt="Teacher">
 										<h6>{{ i.first_name }} {{ i.last_name }}</h6>
 
 										<ul class="organize-list">
@@ -129,109 +84,44 @@
 										</ul>
 
 										<ul class="share-icon">
-											<li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook"
+											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-telegram"
 														aria-hidden="true"></i></a></li>
-											<li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter"
+											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-instagram"
 														aria-hidden="true"></i></a></li>
-											<li><a href="#" class="tran3s round-border icon"><i
-														class="fa fa-google-plus" aria-hidden="true"></i></a></li>
 										</ul>
 
-										<a href="teacher-profile.html" class="theme-bg-color view-profile tran3s">View
+										<a href="{% url 'staf_details' i.id %}" class="theme-bg-color view-profile tran3s">View
 											Profile</a>
 									</div>
+									{% else %}
+									<div class="item">
+										<img style="width: 100px;" src="{{ i.image.url }}" alt="Teacher">
+										<h6>{{ i.first_name }} {{ i.last_name }}</h6>
+
+										<ul class="organize-list">
+											<li><i class="fa fa-envelope-o" aria-hidden="true"></i>
+												{{ i.email }}</li>
+											<li><i class="fa fa-phone" aria-hidden="true"></i>{{ i.number }}</li>
+											<li><i class="fa fa-calendar" aria-hidden="true"></i>{{ i.education }}</li>
+											<li><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ i.experience }}</li>
+										</ul>
+
+										<ul class="share-icon">
+											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-telegram"
+														aria-hidden="true"></i></a></li>
+											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-instagram"
+														aria-hidden="true"></i></a></li>
+										</ul>
+
+										<a href="{% url 'staf_details' i.id %}" class="theme-bg-color view-profile tran3s">View
+											Profile</a>
+									</div>
+									{% endif %}
                                     {% endfor %}
-									<div class="item active">
-										<img src="{% static 'images/inner-page/16.jpg' %}" alt="Teacher">
-										<h6>Mahfuz Riad</h6>
-
-										<ul class="organize-list">
-											  <li><i class="fa fa-envelope-o" aria-hidden="true"></i> backpiper.info@gmail.com</li>
-											  <li><i class="fa fa-phone" aria-hidden="true"></i> +8801682648101</li>
-											  <li><i class="fa fa-calendar" aria-hidden="true"></i> Economic Analysis</li>
-											  <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Professional MCC (UK)</li>
-										  </ul>
-
-										  <ul class="share-icon">
-											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-										  </ul>
-
-										  <a href="teacher-profile.html" class="theme-bg-color view-profile tran3s">View Profile</a>
-									  </div> <!-- /.item -->
-									  <div class="item">
-										<img src="{% static 'images/inner-page/16.jpg' %}" alt="Teacher">
-										<h6>Mahfuz Riad</h6>
-
-										<ul class="organize-list">
-											  <li><i class="fa fa-envelope-o" aria-hidden="true"></i> backpiper.info@gmail.com</li>
-											  <li><i class="fa fa-phone" aria-hidden="true"></i> +8801682648101</li>
-											  <li><i class="fa fa-calendar" aria-hidden="true"></i> Economic Analysis</li>
-											  <li><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Professional MCC (UK)</li>
-										  </ul>
-
-										  <ul class="share-icon">
-											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-											  <li><a href="#" class="tran3s round-border icon"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-										  </ul>
-
-										  <a href="teacher-profile.html" class="theme-bg-color view-profile tran3s">View Profile</a>
-									  </div> <!-- /.item -->
 								</div>
 							</div> <!-- /#talent-teacher-carousel -->
 						</div> <!-- /.box-wrapper -->
 					</div> <!-- /.sidebar-box.talent-teacher -->
-					
-					<div class="sidebar-box feature-event feature-course-sidebar">
-						<div class="box-wrapper">
-							<h4>Featured courses</h4>
-							{% for course in courses %}
-								<div class="single-event clear-fix">
-									<div class="date float-left p-color-bg">
-										{{ course.time.day }} <span>{{ course.time.month }}</span>
-									</div> <!-- /.date -->
-									<div class="post float-left">
-										<a href="course-details.html" class="tran3s">{{ course.title }}</a>
-										<ul>
-											<li><i class="fa fa-calendar" aria-hidden="true"></i> {{ course.duration }}</li>
-											<li><i class="fa fa-user" aria-hidden="true"></i>{{ course.teacher.first_name }}</li>
-											<li><a href="#">{{ course.cost }}</a></li>
-										</ul>
-									</div> <!-- /.post -->
-								</div> <!-- /.single-event -->
-							{% endfor %}
-							<div class="single-event clear-fix">
-								<div class="date float-left p-color-bg">
-									11 <span>Feb</span>
-								</div> <!-- /.date -->
-								<div class="post float-left">
-									<a href="course-details.html" class="tran3s">Overviewing the leading contemporary conceptions</a>
-									<ul>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i> 10 days</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i>Riad</li>
-										<li><a href="#">Free</a></li>
-									</ul>
-								</div> <!-- /.post -->
-							</div> <!-- /.single-event -->
-
-							<div class="single-event clear-fix">
-								<div class="date float-left p-color-bg">
-									09 <span>Feb</span>
-								</div> <!-- /.date -->
-								<div class="post float-left">
-									<a href="course-details.html" class="tran3s">Overviewing the leading contemporary conceptions</a>
-									<ul>
-										<li><i class="fa fa-calendar" aria-hidden="true"></i> 1 Month</li>
-										<li><i class="fa fa-user" aria-hidden="true"></i>Asfia</li>
-										<li><a href="#">$124</a></li>
-									</ul>
-								</div> <!-- /.post -->
-							</div> <!-- /.single-event -->
-						</div> <!-- /.box-wrapper -->
-					</div> <!-- /.sidebar-box.feature-event.feature-course-sidebar -->
-
 				</div> <!-- /.wrapper -->
 			</div> <!-- /.sidebarOne -->
 		</div>

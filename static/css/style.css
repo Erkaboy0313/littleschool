@@ -299,9 +299,9 @@ header.main-header .bootstrap-select.btn-group .dropdown-menu li {
 header .top-header div>ul>li .icon {
   width:42px;
   height:42px;
+  text-align: center;
   background: #edeaea;
   line-height: 42px;
-  text-align: center;
   display: inline-block;
   vertical-align: middle;
 }
@@ -968,8 +968,9 @@ header.inner-header .top-header {
 .event-section .single-event {
   border:1px solid transparent;
   position: relative;
-  padding: 50px 5px 40px 113px;
+  padding: 50px 5px 20px 113px;
   z-index: 9;
+  min-height: 250px;
 }
 .event-section .single-event .date {
   font-size: 40px;
@@ -1132,6 +1133,7 @@ header.inner-header .top-header {
 .latest-news .single-post .text-wrapper .text {
   background: #fff;
   padding: 33px 15px 35px 30px;
+  min-height: 250px;
 }
 .latest-news .single-post .text-wrapper .text a {
   font-weight: 600;
@@ -1538,6 +1540,11 @@ footer .bottom-footer a:hover {
   width:230px;
   height:230px;
   border-radius: 50%;
+}
+.course-image{
+  width: 100% !important;
+  height: 200px;
+  object-fit: cover;
 }
 .our-teacher .item h6 {
   font-size: 18px;
@@ -2916,4 +2923,12 @@ text-transform: uppercase;
   line-height: 70px;
   color:#fff;
   display: block;
+}
+.talanted-img{
+  width: 100px !important;
+}
+.news-image{
+  height: 250px !important;
+  width: 100% !important;
+  object-fit: cover;
 }

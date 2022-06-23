@@ -1,5 +1,22 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
+{% block nav %}
+<div class="collapse navbar-collapse" id="navbar-collapse-1">
+	<ul class="nav navbar-nav">
+		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
+		</li>
+		<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
+		</li>
+		<li><a href="{% url 'contact' %}">Aloqa</a></li>
+	</ul>
+</div><!-- /.navbar-collapse -->
+{% endblock %}
 {% block content %}
 <!-- Inner Page Main Banner __________________ -->
 <div class="inner-page-banner">
@@ -9,18 +26,6 @@
 		</div> <!-- /.container -->
 	</div> <!-- /.opacity -->
 </div> <!-- /.inner-page-banner -->
-
-
-<!-- Page Breadcrum __________________________ -->
-<div class="page-breadcrum">
-	<div class="container">
-		<ul>
-			<li><a href="index.html">Home</a></li>
-			<li>-</li>
-			<li>Faq</li>
-		</ul>
-	</div> <!-- /.container -->
-</div> <!-- /.page-breadcrum -->
 
 
 <!-- Faq Page ____________________________ -->
