@@ -33,6 +33,7 @@ def course_details(request,id):
             'courses':courses,
             'teachers':teachers
         }
+        
         return render(request,'course-details.html',context=context)
     except:
         return redirect('notfound')
