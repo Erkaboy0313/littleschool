@@ -28,12 +28,13 @@ def course_details(request,id):
         course = Course.objects.get(id=id)
         courses = Course.objects.all().order_by('?')[:3]
         teachers = Staf.objects.filter(user_type = Staf.TEACHER)[:6]
+        
         context = {
             'course':course,
             'courses':courses,
             'teachers':teachers
         }
-        
+
         return render(request,'course-details.html',context=context)
     except:
         return redirect('notfound')
