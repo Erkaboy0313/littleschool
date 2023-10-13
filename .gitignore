@@ -1,15 +1,15 @@
-# __pycache__/
-# *.py[cod]
-# Translations
-# *.mo
-# *.pot
-# .venv
-# .env
-# tech_env
-# .idea
-# tech_venv
-# theme/
-# media/
-# .well-known/
-# settings.json
-# migrations/
+__pycache__/
+*.py[cod]
+Translations
+*.mo
+*.pot
+.venv
+.env
+tech_env
+.idea
+tech_venv
+theme/
+media/
+.well-known/
+settings.json
+migrations/
