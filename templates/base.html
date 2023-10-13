@@ -9,7 +9,7 @@
 	<!-- For Resposive Device -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<title>203 - maktab</title>
+	<title>Elite School</title>
 
 	<!-- Favicon -->
 	<link rel="icon" type="image/png" sizes="56x56" href="{% static 'images/fav-icon/icon.png' %}">
@@ -58,9 +58,9 @@
 						</form>
 
 						<!-- Menu -->
-						<nav class="navbar float-right">
+						<nav class="navbar float-left">
 							<!-- Brand and toggle get grouped for better mobile display -->
-							<div class="navbar-header">
+							<div class="navbar-header" >
 								<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
 									data-target="#navbar-collapse-1" aria-expanded="false">
 									<span class="sr-only">Navigatsiya</span>
@@ -71,17 +71,11 @@
 							</div>
 							<!-- Collect the nav links, forms, and other content for toggling -->
 							{% block nav %}
-							<div class="collapse navbar-collapse" id="navbar-collapse-1">
+							<div class="collapse navbar-collapse" style="margin-left: 30px;" id="navbar-collapse-1">
 								<ul class="nav navbar-nav">
 									<li class="dropdown-holder current-page-item"><a href="{% url 'index' %}">Bosh sahifa</a>
 									</li>
-									<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
-									</li>
-									<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
-									</li>
-									<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
-									</li>
-									<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
+									<li class="dropdown-holder"><a href="{% url 'teachers' %}">O'qtuvchilar</a>
 									</li>
 									<li><a href="{% url 'contact' %}">Aloqa</a></li>
 								</ul>

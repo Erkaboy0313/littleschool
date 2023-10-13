@@ -4,12 +4,10 @@ from django.contrib.auth.models import User
 class Staf(models.Model):
     TEACHER = 'Teacher'
     STUDENT = 'Student'
-    DIRECTOR = 'Director'
 
     USER_TYPE = [
         (TEACHER,'Teacher'),
-        (STUDENT,'Student'),
-        (DIRECTOR,'Director'),
+        (STUDENT,'Student')
     ]
 
     user = models.OneToOneField(User,on_delete=models.CASCADE,null=True)
@@ -23,6 +21,7 @@ class Staf(models.Model):
     number = models.CharField(max_length=20,null=True)
     image = models.ImageField(upload_to = 'Staff')
     position = models.CharField(max_length=100,null=True,blank=True)
+    bio_video = models.URLField(null=True,blank=True)
 
     def __str__(self):
         return self.user.username
@@ -30,7 +29,7 @@ class Staf(models.Model):
 class Course(models.Model):
     image = models.ImageField(upload_to = 'Course')
     title = models.CharField(max_length=100)
-    teacher = models.ForeignKey(Staf,on_delete=models.SET_NULL,null=True)
+    teacher = models.ManyToManyField(Staf,blank=True)
     description = models.TextField()
     help = models.TextField()
     cost = models.IntegerField(default=0)

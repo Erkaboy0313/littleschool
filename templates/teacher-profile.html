@@ -1,17 +1,11 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 {% block nav %}
-<div class="collapse navbar-collapse" id="navbar-collapse-1">
+<div class="collapse navbar-collapse" style="margin-left: 30px;" id="navbar-collapse-1">
 	<ul class="nav navbar-nav">
 		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
 		</li>
-		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
-		</li>
-		<li class="dropdown-holder current-page-item"><a href="{% url 'teachers' %}">Hodimlar</a>
-		</li>
-		<li class="dropdown-holder "><a href="{% url 'news' %}">Yangiliklar</a>
+		<li class="dropdown-holder current-page-item"><a href="{% url 'teachers' %}">O'qituvchilar</a>
 		</li>
 		<li><a href="{% url 'contact' %}">Aloqa</a></li>
 	</ul>
@@ -33,7 +27,11 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 float-right" >
-				<div class="text-warpper">
+				<div style="width: 100%; height: 400px;">
+					<iframe style="width: 100%; height: 100%;" src="{{ staf.bio_video }}?rel=0" frameborder="0">
+					</iframe>
+				</div>
+				<div style="margin-top: 50px;" class="text-warpper">
 					<h4>Batafsil ma'lumot</h4>
 					<p class="mmfix">
 						{{ staf.biography }}
@@ -52,7 +50,7 @@
 			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 teacher-sidebar float-left wow fadeInUp">
 				<div class="img-holder theme-bg-color"><img src="{{ staf.image.url }}" alt="Teacher"></div>
 				<div class="teachers-bio p-color-bg">
-					<h6>{{ staf.first_name }} {{ staf.last_name }}</h6>
+					<h6>{{ staf.first_name }} {{ staf.last_name }} </h6>
 					<p><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{ staf.position }}</p>
 					<p><i class="fa fa-envelope-o" aria-hidden="true"></i> <a href="#">{{ staf.email }}</a></p>
 					<p><i class="fa fa-phone" aria-hidden="true"></i> <a href="#">{{ staf.number }}</a></p>
@@ -105,5 +103,31 @@
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </div> <!-- /.our-teacher -->
+<!-- Information Banner _______________________ -->
+<div class="information-banner contact-us-page wow fadeInUp">
+    <div class="container">
+        <h3>O'qtuvchi darslariga <span class="p-color">ro'yxatdan o'tish</span></h3>
+		<div class="contact-us-form">
+			<form class="form-validation" autocomplete="off" method="post">
+				{% csrf_token %}
+				{% include 'partials/_flash_messages.html' %}
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input name="name" type="text" placeholder="Ism">
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input name="last_name" type="text" placeholder="Familia">
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input name="number" type="text" placeholder="Tel: 998934444444">
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<button class="tran3s p-color-bg themehover" title="Send">yuborish</button>
+					</div>
+				</div>
+			</form>
+		</div> <!-- /.contact-us-form -->
+    </div> <!-- /.container -->
+</div> <!-- /.information-banner -->
 
 {% endblock %}

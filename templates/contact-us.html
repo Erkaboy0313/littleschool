@@ -1,17 +1,11 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 {% block nav %}
-<div class="collapse navbar-collapse" id="navbar-collapse-1">
+<div class="collapse navbar-collapse" style="margin-left: 30px;" id="navbar-collapse-1">
 	<ul class="nav navbar-nav">
 		<li class="dropdown-holder"><a href="{% url 'index' %}">Bosh sahifa</a>
 		</li>
-		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'news' %}">Yangiliklar</a>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">O'qituvchilar</a>
 		</li>
 		<li class="current-page-item"><a href="{% url 'contact' %}">Aloqa</a></li>
 	</ul>
@@ -78,10 +72,6 @@
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </div> <!-- /.contact-us-page -->
-
-
-<!-- Google Map -->
-<div id="google-map" style="height:460px; width:100%; margin-top:100px;"></div>
 
 
 {% endblock %}

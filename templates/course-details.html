@@ -2,17 +2,11 @@
 {% load static %}
 {% block content %}
 {% block nav %}
-<div class="collapse navbar-collapse" id="navbar-collapse-1">
+<div class="collapse navbar-collapse" style="margin-left: 30px;" id="navbar-collapse-1">
 	<ul class="nav navbar-nav">
 		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
 		</li>
-		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
-		</li>
-		<li class="dropdown-holder "><a href="{% url 'news' %}">Yangiliklar</a>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">O'qituvchilar</a>
 		</li>
 		<li><a href="{% url 'contact' %}">Aloqa</a></li>
 	</ul>
@@ -22,7 +16,7 @@
 <div class="inner-page-banner">
 	<div class="opacity">
 		<div class="container">
-			<h2>To'garak haqida batafsil</h2>
+			<h2>Kurs haqida batafsil</h2>
 		</div> <!-- /.container -->
 	</div> <!-- /.opacity -->
 </div> <!-- /.inner-page-banner -->
@@ -51,28 +45,29 @@
 					<div class="sub-text course-instructor">
 						<h4>O'qituvchi</h4>
 
-						<div class="single-box-content clear-fix">
-							<div class="item float-left">
-								<div class="theme-bg-color">
-									<div class="img-holder round-border"><img src="{{ course.teacher.image.url }}" alt="Image"></div>
-									<span>{{ course.teacher.first_name }} {{ course.teacher.last_name }}</span>
-									<ul class="rating">
-										<li><i class="fa fa-star" aria-hidden="true"></i></li>
-										<li><i class="fa fa-star" aria-hidden="true"></i></li>
-										<li><i class="fa fa-star" aria-hidden="true"></i></li>
-										<li><i class="fa fa-star" aria-hidden="true"></i></li>
-										<li><i class="fa fa-star-o" aria-hidden="true"></i></li>
-									</ul>
-
-									<p>{{ course.teacher.position }}</p>
-
-									<ul class="contact-list">
-										<li><i class="fa fa-phone" aria-hidden="true"></i>{{ course.teacher.number }}</li>
-										<li><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ course.teacher.email }}</li>
-									</ul>
-								</div>
+						<div class="row">
+							{% for teacher in course.teacher.all %}
+							<div class="col-lg-4 col-md-6 col-12">
+								<div class="single-box-content">
+									<div class="item" style="margin-top: 3px; width: 100%;">
+										<div class="theme-bg-color" style="min-height: 280px; padding: 10px 5px;">
+											<div style="width: 90px; height: 90px;" class="img-holder round-border"><img style="width: 100%; height: 100%; object-fit: cover;" src="{{ teacher.image.url }}" alt="Image"></div>
+											<span>{{ teacher.first_name }} {{ teacher.last_name }}</span>
+											
+											
+											<a href="{% url 'staf_details' teacher.id %}" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+												<p>{{ teacher.position }}</p>
+												<ul class="contact-list" style="padding-left: 0;">
+													<li><i class="fa fa-phone" aria-hidden="true"></i>{{ teacher.number }}</li>
+													<li><i class="fa fa-envelope-o" aria-hidden="true"></i> {{ teacher.email }}</li>
+												</ul>
+											</a>
+											</div>
+										</div>
+								</div> <!-- /.single-box-content -->
 							</div>
-						</div> <!-- /.single-box-content -->
+							{% endfor %}
+						</div>
 
 					</div> <!-- /.sub-text -->
 				</div> <!-- /.course-details-content -->
@@ -83,76 +78,50 @@
 
 					<div class="sidebar-box feature-event feature-course-sidebar">
 						<div class="box-wrapper">
-							<h4>Boshqa to'garaklar</h4>
+							<h4>Boshqa Kurslar</h4>
 							{% for course in courses %}
 								<div class="single-event clear-fix">
-									<div class="date float-left p-color-bg">
-										{{ course.time.day }} <span>{{ course.month }}</span>
-									</div> <!-- /.date -->
 									<div class="post float-left">
 										<a href="{% url 'course_details' course.id %}" class="tran3s">{{ course.title }}</a>
 										<ul>
 											<li><i class="fa fa-calendar" aria-hidden="true"></i> {{ course.duration }}</li>
-											<li><i class="fa fa-user" aria-hidden="true"></i> {{ course.teacher.first_name }} </li>
 										</ul>
 									</div> <!-- /.post -->
 								</div> <!-- /.single-event -->
 							{% endfor %}
 						</div> <!-- /.box-wrapper -->
 					</div> <!-- /.sidebar-box.feature-event.feature-course-sidebar -->
-
-					<div class="sidebar-box talent-teacher">
-						<div class="box-wrapper">
-							<h4>Talent teacher</h4>
-
-							<div id="talent-teacher-carousel" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-									<li data-target="#talent-teacher-carousel" data-slide-to="0" class="active"></li>
-									<li data-target="#talent-teacher-carousel" data-slide-to="1"></li>
-									<li data-target="#talent-teacher-carousel" data-slide-to="2"></li>
-								</ol>
-
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
-									{% for teacher in teachers %}
-										{% if forloop.counter == 1 %}
-										<div class="item active">
-											<img class="talanted-img" src="{{ teacher.image.url }}" alt="Teacher">
-											<h6>{{ teacher.first_name }} {{ teacher.last_name }}</h6>
-
-											<ul class="organize-list">
-												<li><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ teacher.email }}</li>
-												<li><i class="fa fa-phone" aria-hidden="true"></i> {{ teacher.number }}</li>
-												<li><i class="fa fa-calendar" aria-hidden="true"></i> {{ teacher.position }}</li>
-												</ul>
-
-											<a href="{% url 'staf_details' teacher.id %}" class="theme-bg-color view-profile tran3s">Batafsil</a>
-										</div> <!-- /.item -->
-										{% else %}
-										<div class="item">
-											<img class="talanted-img" src="{{ teacher.image.url }}" alt="Teacher">
-											<h6>{{ teacher.first_name }} {{ teacher.last_name }}</h6>
-
-											<ul class="organize-list">
-												<li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-													{{ teacher.email }}</li>
-												<li><i class="fa fa-phone" aria-hidden="true"></i> {{ teacher.number }}</li>
-												<li><i class="fa fa-calendar" aria-hidden="true"></i> {{ teacher.position }}</li>
-												</ul>
-
-											<a href="{% url 'staf_details' teacher.id %}" class="theme-bg-color view-profile tran3s">Batafsil</a>
-										</div> <!-- /.item -->
-										{% endif %}
-									{% endfor %}
-								</div>
-							</div> <!-- /#talent-teacher-carousel -->
-						</div> <!-- /.box-wrapper -->
-					</div> <!-- /.sidebar-box.talent-teacher -->
 				</div> <!-- /.wrapper -->
 			</div> <!-- /.sidebarOne -->
 		</div>
 	</div>
 </div>
+
+<!-- Information Banner _______________________ -->
+<div class="information-banner contact-us-page wow fadeInUp">
+    <div class="container">
+        <h3>Kursga <span class="p-color">ro'yxaatdan o'tish</span></h3>
+		<div class="contact-us-form">
+			<form class="form-validation" autocomplete="off" method="post">
+				{% csrf_token %}
+				{% include 'partials/_flash_messages.html' %}
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input name="name" type="text" placeholder="Ism">
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input name="last_name" type="text" placeholder="Familia">
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+						<input name="number" type="text" placeholder="Tel: 998934444444">
+					</div>
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<button class="tran3s p-color-bg themehover" title="Send">yuborish</button>
+					</div>
+				</div>
+			</form>
+		</div> <!-- /.contact-us-form -->
+    </div> <!-- /.container -->
+</div> <!-- /.information-banner -->
 
 {% endblock %}

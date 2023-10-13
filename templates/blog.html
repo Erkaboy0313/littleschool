@@ -1,17 +1,11 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 {% block nav %}
-<div class="collapse navbar-collapse" id="navbar-collapse-1">
+<div class="collapse navbar-collapse" style="margin-left: 30px;" id="navbar-collapse-1">
 	<ul class="nav navbar-nav">
 		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
 		</li>
-		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'teachers' %}">Hodimlar</a>
-		</li>
-		<li class="dropdown-holder current-page-item"><a href="{% url 'news' %}">Yangiliklar</a>
+		<li class="dropdown-holder"><a href="{% url 'teachers' %}">O'qituvchilar</a>
 		</li>
 		<li><a href="{% url 'contact' %}">Aloqa</a></li>
 	</ul>
@@ -33,10 +27,10 @@
 	<div class="container">
 		<div class="row">
 
-			<div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+			<div class="col-12">
 				<div class="row latest-news blog-v1">
                     {% for i in news %}
-					<div class="single-post wow fadeInUp col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<div class="single-post wow fadeInUp col-lg-4 col-md-6 col-sm-6 col-xs-6">
 						<div class="img-holder">
 							<div class="date wow fadeInUp p-color-bg">{{ i.time.day }}<span>{{ i.month }}</span></div>
 							<img class="news-image" src="{{ i.image.url }}" alt="Image">
@@ -45,84 +39,12 @@
 						<div class="text-wrapper">
 							<div class="text tran4s">
 								<a href="{% url 'news_details' i.id }">{{ i.title }}</a>
-								<p>{{ i.description | truncatechars:100 }}</p>
 							</div> <!-- /.text -->
 						</div> <!-- /.text-wrapper -->
 					</div> <!-- /.single-post -->
                     {% endfor %}
 				</div>
 			</div>
-			<!-- _______________ SideBar ___________________ -->
-			<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 sidebarOne">
-				<div class="wrapper-left">
-					<div class="sidebar-box talent-teacher">
-						<div class="box-wrapper">
-							<h4>O'qituvchilarimiz</h4>
-
-							<div id="talent-teacher-carousel" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-									<li data-target="#talent-teacher-carousel" data-slide-to="0" class="active"></li>
-									<li data-target="#talent-teacher-carousel" data-slide-to="1"></li>
-									<li data-target="#talent-teacher-carousel" data-slide-to="2"></li>
-								</ol>
-
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" role="listbox">
-                                    {% for i in teachers %}
-									{% if forloop.counter == 1 %}
-									<div class="item active">
-										<img style="width: 100px;" src="{{ i.image.url }}" alt="Teacher">
-										<h6>{{ i.first_name }} {{ i.last_name }}</h6>
-
-										<ul class="organize-list">
-											<li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-												{{ i.email }}</li>
-											<li><i class="fa fa-phone" aria-hidden="true"></i>{{ i.number }}</li>
-											<li><i class="fa fa-calendar" aria-hidden="true"></i>{{ i.education }}</li>
-											<li><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ i.experience }}</li>
-										</ul>
-
-										<ul class="share-icon">
-											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-telegram"
-														aria-hidden="true"></i></a></li>
-											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-instagram"
-														aria-hidden="true"></i></a></li>
-										</ul>
-
-										<a href="{% url 'staf_details' i.id %}" class="theme-bg-color view-profile tran3s">View
-											Profile</a>
-									</div>
-									{% else %}
-									<div class="item">
-										<img style="width: 100px;" src="{{ i.image.url }}" alt="Teacher">
-										<h6>{{ i.first_name }} {{ i.last_name }}</h6>
-
-										<ul class="organize-list">
-											<li><i class="fa fa-envelope-o" aria-hidden="true"></i>
-												{{ i.email }}</li>
-											<li><i class="fa fa-phone" aria-hidden="true"></i>{{ i.number }}</li>
-											<li><i class="fa fa-calendar" aria-hidden="true"></i>{{ i.education }}</li>
-											<li><i class="fa fa-pencil-square-o" aria-hidden="true"></i>{{ i.experience }}</li>
-										</ul>
-
-										<ul class="share-icon">
-											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-telegram"
-														aria-hidden="true"></i></a></li>
-											<li><a href="#" class="tran3s round-border icon" style="padding-top: 12px;"><i class="fa fa-instagram"
-														aria-hidden="true"></i></a></li>
-										</ul>
-
-										<a href="{% url 'staf_details' i.id %}" class="theme-bg-color view-profile tran3s">Profilni ko'rish</a>
-									</div>
-									{% endif %}
-                                    {% endfor %}
-								</div>
-							</div> <!-- /#talent-teacher-carousel -->
-						</div> <!-- /.box-wrapper -->
-					</div> <!-- /.sidebar-box.talent-teacher -->
-				</div> <!-- /.wrapper -->
-			</div> <!-- /.sidebarOne -->
 		</div>
 	</div> <!-- /.container -->
 </div> <!-- /.blog-v2 -->

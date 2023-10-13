@@ -12,6 +12,7 @@ def index(request):
     events = Event.objects.all()[0:3]
     news = News.objects.all().order_by('time')[:3]
     opinions = Opinion.objects.filter(checked = True).order_by('time')[:3]
+    teachers = Staf.objects.filter(user_type = Staf.TEACHER)[:6]
     faq = Faq.objects.all()[:3]
     context = {
         'courses' : course,
@@ -20,6 +21,7 @@ def index(request):
         'news' : news,
         'opinions' : opinions,
         'faq' : faq,
+        'teachers':teachers
     }
     return render(request,'index.html',context)
 

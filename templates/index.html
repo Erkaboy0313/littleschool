@@ -137,39 +137,6 @@
     </div><!-- END REVOLUTION SLIDER -->
 </div> <!--  /#banner -->
 
-<!-- Welcome Section ___________________________ -->
-<div class="welcome-section">
-    <div class="container">
-        <div class="section-title wow fadeInUp">
-            <h2 class="p-color"> xush kelibsiz</h2>
-            <h5>Muvaffaqayatli o'quvchilarimiz safiga qo'shiling</h5>
-            <p>Iqtidorli yoshlarni aniqlash, tanlash, o‘qitish va tarbiyalash, yosh iste’dodlarni yanada qo‘llab-quvvatlash va rag‘batlantirish, darsliklar va o‘quv-uslubiy qo‘llanmalarni tayyorlash va nashr etishdagi muammolarni bartaraf qilish ishlarini sifat jihatidan yangi bosqichga ko‘tarish</p>
-        </div> <!-- /.section-title -->
-
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
-                <h3><i class="fa fa-graduation-cap" aria-hidden="true"></i> Biz bilan ta'lim oling</h3>
-                <p>Biz bilan ta'lim oling va ko'plab imkoniyatlarga ega bo'ling. Bizning tajribali 
-                    o'qituvchilar va bizda yaratilgan sharoitlar sizni yoki farzandingizni sifatli
-                    ta'lim olishini kafolatlaydi. 
-                </p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
-                <h3><i class="fa fa-tags" aria-hidden="true"></i> Sifatli to'garaklar</h3>
-                <p> Bizdagi mavjud sifatli to'garaklar yordamida siz yoki sizning farzandingizni
-                    darslar davomida o'zlashtirgan bilimlarini yanada mukamallashtirish imkoniyatiga
-                    ega bo'ladilar. </p>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 wow fadeInUp">
-                <h3><i class="fa fa-diamond" aria-hidden="true"></i> Bizdagi sharoitlar</h3>
-                <p>Maktabimiz o'quvchilar ta'lim olishi uchun yetarli sharoitlar yaratilgan. Maxsus sinfxonalari
-                   jismoniy tarbiya mashg'ulotlarini o'tkazish uchun sport zallari, zamonaviy texnologiyalarni
-                   o'rganish uchun kompyuterxonalari mavjud. </p>
-            </div>
-        </div>
-    </div> <!-- /.container -->
-</div> <!-- /.welcome-section -->
-
 <!-- Popular Course _________________________ -->
 <div class="popular-course wow fadeInUp theme-bg-color">
     <div class="container">
@@ -182,8 +149,6 @@
                     <div class="img-holder"><img class="course-image" src="{{ course.image.url }}" alt="Image"></div>
                     <div class="text">
                         <h4><a href="{% url 'course_details' course.id %}">{{ course.title }}</a></h4>
-                        <div class="img round-border"><img src="{{ course.teacher.image.url }}" alt="Image"></div>
-                        <h6>{{ course.teacher.first_name }} {{ course.teacher.last_name }}</h6>
                         <p>{{ course.description|truncatechars:100 }}</p>
                     </div> <!-- /.text -->
                 </div> <!-- /.item -->
@@ -231,161 +196,65 @@
     </div> <!-- /.opacity -->
 </div> <!-- /.course-progress -->
 
-<!-- Event Section _______________________ -->
-<div class="event-section wow fadeInUp">
-    <div class="container">
-        <div class="theme-title">
-            <h2>Tadbirlar</h2>
-            <p>Tadbir va Musobaqalar</p>
-        </div>
+<!-- Our Teacher ________________________ -->
+<div class="our-teacher wow fadeInUp our-teacher-single-page" style="margin-top: 50px;">
+	<div class="container">
+		<div class="row">
+			<div class="theme-slider">
+                {% for i in teachers %}
+				<div class="item">
+					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
+						<div class="img-holder round-border">
+							<img src="{{ i.image.url }}" alt="Teacher">
+							<div class="overlay round-border tran4s">
+								<ul>
+									<li><a href="#" class="tran3s round-border icon" style="padding-top: 15px;"><i class="fa fa-telegram"
+												aria-hidden="true"></i></a></li>
+									<li><a href="#" class="tran3s round-border icon" style="padding-top: 15px;"><i class="fa fa-instagram"
+												aria-hidden="true"></i></a></li>
+								</ul>
+							</div>
+						</div> <!-- /.img-holder -->
+						<a href="{% url 'staf_details' i.id %}">
+							<h6>{{ i.first_name }} {{ i.last_name }}</h6>
+						</a>
+						<p>{{ i.position }}</p>
+					</div>
+				</div>
+                {% endfor %}
+			</div>
+		</div> <!-- /.row -->
+	</div> <!-- /.container -->
+</div> <!-- /.our-teacher -->
 
-        <div class="row">
-            {% for event in events %}
-            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 wow fadeInUp hvr-float-shadow">
-                <div class="single-event theme-bg-color">
-                    <div class="date p-color">{{ event.day }}<span>{{ event.month }}</span></div>
-                    <a href="{% url 'event_details' event.id %}">
-                        <h6>{{ event.topic }}</h6>
-                    </a>
-                    <p>{{ event.description|truncatechars:100 }}</p>
-                    <ul>
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ event.place }}</li>
-                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ event.time }}</li>
-                    </ul>
-                </div> <!-- /.single-event -->
-            </div>
-            {% endfor %}
-            </div>
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-
-<!-- Information Banner _______________________ -->
-<div class="information-banner wow fadeInUp">
-    <div class="container">
-        <h3>O'qituvchilar,o'quv jarayoni haqida ma'lumotlarni <span class="p-color">bilish uchun</span></h3>
-        <h6>Biz bilan bog'laning</h6>
-        <a href="{% url 'contact' %}" class="p-color-bg tran3s wow fadeInUp">bo'glanish</a>
-    </div> <!-- /.container -->
-</div> <!-- /.information-banner -->
 
 <!-- Latest News ___________________________ -->
 <div class="latest-news wow fadeInUp theme-bg-color">
     <div class="container">
         <div class="theme-title">
-            <h2>So'ngi yangiliklar</h2>
-            <p>Bizning maktab haqida so'ngi yangiliklar</p>
+            <h2>So'ngi Lavhalar</h2>
+            <p>Bizning o'quvmarkazidagi dars jarayonlari</p>
         </div>
-
         <div class="post-wrapper row">
-            {% for new in news %}
-            <div class="single-post wow fadeInUp col-lg-4 col-md-4 col-sm-6 col-xs-6">
-                <div class="img-holder">
-                    <div class="date wow fadeInUp p-color-bg">{{ new.day }} <span>{{ new.month }}</span></div>
-                    <img class="news-image" src="{{ new.image.url }}" alt="Image">
-                    <a href="{% url 'news_details' new.id %}" class="tran4s"></a>
+            <div class="theme-slider">
+                {% for new in news %}
+                <div class="item">
+                    <div style="margin: 0 15px 15px 15px;" class="single-post wow fadeInUp">
+                        <div class="img-holder">
+                            <img class="news-image" src="{{ new.image.url }}" alt="Image">
+                            <a href="{% url 'news' %}" class="tran4s"></a>
+                        </div>
+                        <div class="text-wrapper">
+                            <div class="text tran4s">
+                                <a href="{% url 'news' %}"> {{ new.title }} </a>
+                            </div> <!-- /.text -->
+                        </div> <!-- /.text-wrapper -->
+                    </div> <!-- /.single-post -->
                 </div>
-                <div class="text-wrapper">
-                    <div class="text tran4s">
-                        <a href="{% url 'news_details' new.id %}"> {{ new.title }} </a>
-                        <p>{{ new.description|truncatechars:150 }}</p>
-                    </div> <!-- /.text -->
-                </div> <!-- /.text-wrapper -->
-            </div> <!-- /.single-post -->
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div> <!-- /.post-wrapper -->
     </div> <!-- /.container -->
 </div> <!-- /.latest-news -->
-
-<!-- Testimonial And FAQ Section _________________________ -->
-<div class="test-faq">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 testimonial wow fadeInLeft">
-                <div class="wrapper">
-                    <h3>Biz haqimizda fikrlar</h3>
-                    <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            {% for o in opinions %}
-                                {% if forloop.first %}
-                                <li data-target="#testimonial-carousel" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
-                                {% else %}
-                                <li data-target="#testimonial-carousel" data-slide-to="{{ forloop.counter0 }}"></li>
-                                {% endif %}
-                            {% endfor %}
-                        </ol>
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            {% for o in opinions %}
-                                {% if forloop.first %}
-                                <div class="item active">
-                                    <div class="single-box theme-bg-color">
-                                        <div class="img round-border"><img src="{% static 'images/home/user.png' %}" alt="Image">
-                                        </div>
-                                        <h6>{{ o.first_name }} {{ o.last_name }}</h6>
-                                        <p>{{ o.opinion|truncatechars:150 }}</p>
-                                    </div> <!-- /.single-box -->
-                                </div>
-                                {% else %}
-                                <div class="item">
-                                    <div class="single-box theme-bg-color">
-                                        <div class="img round-border"><img src="{% static 'images/home/user.png' %}" alt="Image">
-                                        </div>
-                                        <h6>{{ o.first_name }} {{ o.last_name }}</h6>
-                                        <p>{{ o.opinion|truncatechars:150 }}</p>
-                                    </div> <!-- /.single-box -->
-                                </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </div> <!-- /#testimonial-carousel -->
-                </div> <!-- /.wrapper -->
-            </div> <!-- /.testimonial -->
-
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 faq wow fadeInRight">
-                <div class="wrapper">
-                    <h3>Ko'p so'raladigon savollar</h3>
-                    <!-- ________________ Panel _______________ -->
-                    <div class="faq_panel">
-                        <div class="panel-group theme-accordion" id="accordion">
-                            {% for f in faq %}
-                                {% if forloop.first %}
-                                <div class="panel">
-                                    <div class="panel-heading active-panel">
-                                        <h6 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
-                                                {{ f.question }}</a>
-                                        </h6>
-                                    </div>
-                                    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse in">
-                                        <div class="panel-body">
-                                            <p>{{ f.answer }}</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- /panel 1 -->
-                                {% else %}
-                                <div class="panel">
-                                    <div class="panel-heading ">
-                                        <h6 class="panel-title">
-                                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}">
-                                                {{ f.question }}</a>
-                                        </h6>
-                                    </div>
-                                    <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse out">
-                                        <div class="panel-body">
-                                            <p>{{ f.answer }}</p>
-                                        </div>
-                                    </div>
-                                </div> <!-- /panel 1 -->
-                                {% endif %}
-                            {% endfor %}
-                        </div> <!-- end #accordion -->
-                    </div> <!-- End of .faq_panel -->
-                </div> <!-- /.wrapper -->
-            </div> <!-- /.faq -->
-        </div> <!-- /.row -->
-    </div> <!-- /.container -->
-</div> <!-- /.test-faq -->
 
 {% endblock %}

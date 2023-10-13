@@ -1,21 +1,15 @@
 ﻿{% extends 'base.html' %}
 {% load static %}
 {% block nav %}
-<div class="collapse navbar-collapse" id="navbar-collapse-1">
-	<ul class="nav navbar-nav">
-		<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'about_us' %}">Biz haqimizda</a>
-		</li>
-		<li class="dropdown-holder"><a href="{% url 'events' %}">Tadbirlar</a>
-		</li>
-		<li class="dropdown-holder current-page-item"><a href="{% url 'teachers' %}">Hodimlar</a>
-		</li>
-		<li class="dropdown-holder "><a href="{% url 'news' %}">Yangiliklar</a>
-		</li>
-		<li><a href="{% url 'contact' %}">Aloqa</a></li>
-	</ul>
-</div><!-- /.navbar-collapse -->
+	<div class="collapse navbar-collapse" style="margin-left: 30px;" id="navbar-collapse-1">
+		<ul class="nav navbar-nav">
+			<li class="dropdown-holder "><a href="{% url 'index' %}">Bosh sahifa</a>
+			</li>
+			<li class="dropdown-holder current-page-item"><a href="{% url 'teachers' %}">O'qituvchilar</a>
+			</li>
+			<li><a href="{% url 'contact' %}">Aloqa</a></li>
+		</ul>
+	</div><!-- /.navbar-collapse -->
 {% endblock %}
 {% block content %}
 <!-- Inner Page Main Banner __________________ -->
@@ -32,8 +26,8 @@
 <div class="our-teacher wow fadeInUp our-teacher-single-page" style="margin-top: 50px;">
 	<div class="container">
 		<div class="row">
-			<div class="theme-slider">
-                {% for i in teachers %}
+			{% for i in teachers %}
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
 				<div class="item">
 					<div class="item-wrapper theme-bg-color tran3s hvr-float-shadow">
 						<div class="img-holder round-border">
@@ -53,38 +47,10 @@
 						<p>{{ i.position }}</p>
 					</div>
 				</div>
-                {% endfor %}
 			</div>
+                {% endfor %}
 		</div> <!-- /.row -->
 	</div> <!-- /.container -->
 </div> <!-- /.our-teacher -->
-
-
-<!-- Latest Event Slider Section _______ -->
-<div class="latest-event-slider event-section wow fadeInUp">
-	<div class="container">
-		<h3>So'ngi tadbirlar</h3>
-
-		<div class="row">
-			<div class="theme-slider">
-				{% for event in events %}
-					<div class="item hvr-float-shadow">
-						<div class="single-event theme-bg-color">
-							<div class="date p-color">{{ event.day }} <span>{{ event.month }}</span></div>
-							<a href="{% url 'event_details' event.id %}">
-								<h6>{{ event.topic }}</h6>
-							</a>
-							<p>{{ event.description|truncatechars:100 }}</p>
-							<ul>
-								<li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ event.place }}</li>
-								<li><i class="fa fa-clock-o" aria-hidden="true"></i>{{ event.time }}</li>
-							</ul>
-						</div> <!-- /.single-event -->
-					</div> <!-- /.item -->
-				{% endfor %}
-			</div> <!-- /.theme-slider -->
-		</div> <!-- /.row -->
-	</div> <!-- /.container -->
-</div> <!-- /.latest-event-slider -->
 
 {% endblock %}

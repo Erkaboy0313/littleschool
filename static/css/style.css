@@ -784,7 +784,7 @@ header.inner-header .top-header {
 /*=========================== Popular Course =================*/
 .popular-course {
   padding: 90px 0 95px 0;
-  margin: 95px 0 0 0;
+  margin: 0 0 0 0;
 }
 .popular-course.mFix {
   margin-top:0;
@@ -1132,8 +1132,11 @@ header.inner-header .top-header {
 }
 .latest-news .single-post .text-wrapper .text {
   background: #fff;
-  padding: 33px 15px 35px 30px;
-  min-height: 250px;
+  padding: 15px 15px 15px 15px;
+  min-height: 100px;
+  max-height: 100px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .latest-news .single-post .text-wrapper .text a {
   font-weight: 600;
