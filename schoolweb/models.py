@@ -125,6 +125,25 @@ class Opinion(models.Model):
     def __str__(self):
         return self.opinion
 
+class Banner(models.Model):
+    image = models.ImageField(upload_to='banner',blank=True,null=True)
+    text = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.text
+
+class NewStudents(models.Model):
+    teacher = models.CharField(max_length=200,null=True,blank=True)
+    course = models.CharField(max_length=200,null=True,blank=True)
+    name = models.CharField(max_length=200,null=True,blank=True)
+    surname = models.CharField(max_length=200,null=True,blank=True)
+    tel = models.CharField(max_length=200,null=True,blank=True)
+
+    status = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ['status']
+
 class Statistics(models.Model):
     teachers = models.IntegerField(default=0)
     finishers = models.IntegerField(default=0)

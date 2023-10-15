@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import course,leave_comment,index,about_us,events, notfound,teachers,faq,news,contact,heads, news_details,course_details,staf_details,event_details
+from .views import course,leave_comment,registerNewStudent,index,about_us,events, notfound,teachers,faq,news,contact,heads, news_details,course_details,staf_details,event_details
 urlpatterns = [
     path('',index,name='index'),
     path('about-us/',about_us,name='about_us'),
@@ -13,6 +13,7 @@ urlpatterns = [
     path('leave_comment/<int:id>',leave_comment,name='leave_comment'),
     path('page-not-found/',notfound,name='notfound'),
 
+    path('register-course',registerNewStudent,name='newcourse'),
     #--------------- Detatils page ----------------
     
     path('news-detatils/<int:id>/',news_details,name='news_details'),

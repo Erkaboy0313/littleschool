@@ -102,18 +102,19 @@
     <div class="container">
         <h3>Kursga <span class="p-color">ro'yxaatdan o'tish</span></h3>
 		<div class="contact-us-form">
-			<form class="form-validation" autocomplete="off" method="post">
+			<form class="form-validation" action="{% url 'newcourse' %}" autocomplete="off" method="post">
 				{% csrf_token %}
 				{% include 'partials/_flash_messages.html' %}
+				<input type="hidden" name="course" value="{{ course.title }}">
 				<div class="row">
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
 						<input name="name" type="text" placeholder="Ism">
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<input name="last_name" type="text" placeholder="Familia">
+						<input name="surname" type="text" placeholder="Familia">
 					</div>
 					<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-						<input name="number" type="text" placeholder="Tel: 998934444444">
+						<input name="tel" type="text" placeholder="Tel: 998934444444">
 					</div>
 					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 						<button class="tran3s p-color-bg themehover" title="Send">yuborish</button>

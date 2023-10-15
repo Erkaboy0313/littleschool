@@ -1,27 +1,37 @@
 from django.shortcuts import redirect, render
-from .models import Staf,Course,Modul,Event,News,Comment,Faq,Opinion,Statistics
+from .models import Staf,Course,Event,News,Comment,Faq,Opinion,Statistics,Banner
 from django.contrib import messages
+from .forms import NewStudentForm
 # Create your views here.
 
 def notfound(request):
     return render(request,'404.html')
 
+
+def registerNewStudent(request):
+    url = request.META['HTTP_REFERER']
+    print(request.META)
+    if request.method == "POST":
+        form = NewStudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.add_message(request,messages.SUCCESS,'Siz ushbu kursga ro\'yxatdan o\'tdingiz!!!')
+        else:
+            messages.add_message(request,messages.SUCCESS,"Iltimos qayta urinib ko'ring")
+        return redirect(url)
+
 def index(request):
     course = Course.objects.all()
     statistics = Statistics.objects.all()[0]
-    events = Event.objects.all()[0:3]
     news = News.objects.all().order_by('time')[:3]
-    opinions = Opinion.objects.filter(checked = True).order_by('time')[:3]
     teachers = Staf.objects.filter(user_type = Staf.TEACHER)[:6]
-    faq = Faq.objects.all()[:3]
+    banner = Banner.objects.all()
     context = {
         'courses' : course,
         'statistics' : statistics,
-        'events' : events,
         'news' : news,
-        'opinions' : opinions,
-        'faq' : faq,
-        'teachers':teachers
+        'teachers':teachers,
+        'banner':banner,
     }
     return render(request,'index.html',context)
 
@@ -70,7 +80,7 @@ def event_details(request,id):
         return redirect('notfound')
 
 def teachers(request):
-    teachers = Staf.objects.filter(user_type__in = [Staf.TEACHER,Staf.DIRECTOR])
+    teachers = Staf.objects.filter(user_type__in = [Staf.TEACHER])
     events = Event.objects.all()[:3]
     return render(request,'our-teacher.html',{'teachers':teachers,'events':events})
 
